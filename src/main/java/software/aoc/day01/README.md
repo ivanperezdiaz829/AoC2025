@@ -9,20 +9,10 @@ El objetivo de este reto es descifrar la combinación de seguridad de la entrada
 
 ---
 
-## Modelo de Dominio e Identificación de Tipos
+## Explicación de las Relaciones y Elementos
 
-Para modelar la física de este reto sin acoplamiento con la lectura física de ficheros, hemos diseñado las siguientes estructuras cohesivas:
-
-1.  **`Direction` (Enum)**: Representa el sentido físico del giro (`LEFT` hacia números menores, `RIGHT` hacia números mayores).
-2.  **`Rotation` (Record)**: Representa la instrucción inmutable compuesta por la dirección de giro y la cantidad de clicks de desplazamiento.
-3.  **`Dial` (Clase de Dominio)**: Representa la entidad mutable del Dial físico. Únicamente expone su estado (`position`) y la regla matemática de desplazamiento circular de módulo 100 (`LIMIT = 100`). Evita la herencia de implementaciones y está totalmente aislado de la lógica de puntuación.
-4.  **`RotationReader` (Interfaz Adapter)**: Contrato para desacoplar el origen de los datos de rotación (ficheros, strings) del motor de resolución.
-5.  **`StringRotationReader` (Clase)**: Implementación concreta que procesa las cadenas de texto del input transformando los tokens en records `Rotation`.
-6.  **`RotationScorer` (Interfaz Strategy)**: Define el contrato abstracto para calcular el valor acumulativo de aciertos sobre el 0 durante una rotación específica.
-7.  **`EndAtZeroScorer` (Clase)**: Estrategia concreta (Parte A) que suma un acierto únicamente si la posición final de la rotación aterriza exactamente en el 0.
-8.  **`PassThroughZeroScorer` (Clase)**: Estrategia concreta (Parte B) que calcula aritméticamente cuántas veces el dial sobrepasa o toca el 0 durante el recorrido continuo de la rotación.
-9.  **`Day01Solver` (Orquestador Base)**: Componente central que recibe las dependencias inyectadas (`RotationReader` y `RotationScorer`) y orquesta el flujo de ejecución principal manipulando el `Dial`.
-10. **`Day01ASolver` / `Day01BSolver` (Orquestadores Específicos)**: Adaptadores que configuran e inicializan `Day01Solver` con los componentes concretos requeridos para cada parte del problema.
+- **Day01Solver** implementa la interfaz **SafeSolver**, exponiendo así únicamente al método público `solve``.
+- 
 
 ---
 
@@ -62,15 +52,14 @@ classDiagram
         -TOTAL_POSITIONS: int$ = 100
         -position: int
         -zeroesCount: int
-        +apply(instruction: Instruction) DialState
+        +move(delta: int) DialState
     }
 
     %% Relaciones
     Day01ASolver ..|> SafeSolver : implementa
     Day01ASolver *-- Instruction : compone/crea
-    Day01ASolver *-- DialState : gestiona
+    Day01ASolver *-- DialState : coordina
     Instruction *-- Direction : contiene
-    DialState ..> Instruction : recibe como parámetro
 ```
 
 ---
