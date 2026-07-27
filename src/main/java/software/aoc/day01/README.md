@@ -66,7 +66,7 @@ classDiagram
     TotalScorer <|.. PassThroughZero : implementa
     
     %% Relación de Uso
-    Day01Solver ..> Dial : instancia/coordina
+    Day01Solver ..> Dial : instancia
     TotalScorer ..> Dial : evalúa
 ```
 
