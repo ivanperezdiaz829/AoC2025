@@ -52,7 +52,7 @@ classDiagram
 
     class Dial {
         <<record>>
-        -position: int {readOnly}
+        -position: int
         +rotate(instruction: String) Dial
     }
 
