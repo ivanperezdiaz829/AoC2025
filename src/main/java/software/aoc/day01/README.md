@@ -22,44 +22,52 @@ La arquitectura sigue estrictamente los principios de Inversión de Dependencias
 
 ```mermaid
 classDiagram
-    class SafeSolver {
+    class Day01Solver {
+        -reader: RotationReader
+        -scorer: TotalScorer
+        +solve(input: String) long
+    }
+
+    class RotationReader {
         <<interface>>
-        +solve(input: String) long
+        +readRotation(input: String) List~Rotation~
     }
 
-    class Day01ASolver {
-        +solve(input: String) long
-        -parseInput(input: String) List~Instruction~
-        -calculateZeroes(instructions: List~Instruction~) long
+    class ObtainRotation {
+        +readRotation(input: String) List~Rotation~
     }
 
-    class Direction {
-        <<enumeration>>
-        L
-        R
-        +fromChar(c: char)$ Direction
+    class TotalScorer {
+        <<interface>>
+        +calculateScore(oldDial: Dial, newDial: Dial) int
     }
 
-    class Instruction {
+    class EndAtZero {
+        +calculateScore(oldDial: Dial, newDial: Dial) int
+    }
+
+    class PassThroughZero {
+        +calculateScore(oldDial: Dial, newDial: Dial) int
+    }
+
+    class Dial {
         <<record>>
-        -direction: Direction
-        -steps: int
-        +parse(line: String)$ Instruction
+        -position: int {readOnly}
+        +rotate(instruction: String) Dial
     }
 
-    class DialState {
-        <<record>>
-        -TOTAL_POSITIONS: int$ = 100
-        -position: int
-        -zeroesCount: int
-        +move(delta: int) DialState
-    }
-
-    %% Relaciones
-    Day01ASolver ..|> SafeSolver : implementa
-    Day01ASolver *-- Instruction : compone/crea
-    Day01ASolver *-- DialState : coordina
-    Instruction *-- Direction : contiene
+    %% Relaciones de Agregación / Composición
+    Day01Solver *-- RotationReader
+    Day01Solver *-- TotalScorer
+    
+    %% Relaciones de Implementación
+    RotationReader <|.. ObtainRotation : implementa
+    TotalScorer <|.. EndAtZero : implementa
+    TotalScorer <|.. PassThroughZero : implementa
+    
+    %% Relación de Uso
+    Day01Solver ..> Dial : instancia/coordina
+    TotalScorer ..> Dial : evalúa
 ```
 
 ---
