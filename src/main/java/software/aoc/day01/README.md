@@ -16,9 +16,19 @@ El objetivo de este reto es descifrar la combinación de seguridad de la entrada
 
 ---
 
-## Arquitectura del Día
+## Arquitectura de Clases y Responsabilidades
 
-La arquitectura sigue estrictamente los principios de Inversión de Dependencias y Responsabilidad Única. El parser lee y genera tipos de dominio inmutables, el Dial ejecuta la física y las estrategias computan las puntuaciones de forma aislada.
+- **El Orquestador:**
+    *  `Day01Solver` **(Clase):** Actúa como el cliente principal de la inyección de dependencias que contiene referencias a `RotationReader` y `TotalScorer` orquestando el flujo (lee las instrucciones, itera sobre ellas e invoca al evaluador de puntos).
+- **Dominio de Lectura (Abstracción de Datos):**
+    *  `RotationReader` **(Interfaz):** Establece el contrato público para la lectura de datos.
+    *  `ObtainRotation` **(Clase):** Implementa el contrato utilizando la API de Streams de Java para transformar el archivo de texto en una lista de instrucciones procesables.
+- **Dominio de Puntuación (Polimorfismo):**
+    *  `TotalScorer` **(Interfaz):** Interfaz que define el contrato que calcula la puntuación, permitiendo la inyección de lógica de negocio.
+    *  `EndAtZero` **(Clase):** Implementación concreta de la Parte A.
+    *  `PassThroughZero` **(Clase):** Implementación concreta de la Parte B.
+- **Dominio de Estado (Inmutabilidad):**
+    * `Dial` **(Record):** Modela el comportamiento físico de la caja fuerte. Actúa como módulo altamente cohesivo que aplica la matemática del módulo circular para calcular nuevas posiciones y retorna siempre un nuevo estado evitando así la mutación.
 
 ```mermaid
 classDiagram
@@ -72,18 +82,23 @@ classDiagram
 
 ---
 
-## Patrones de Diseño Aplicados
+## Fundamentos y Principios de Diseño Aplicados
 
-*   **Adapter Pattern (Reader)**: Aislamos la entrada cruda del solver mediante `RotationReader`. El solver nunca hace `split` ni manipula strings; recibe una secuencia limpia de records de dominio `Rotation`.
-*   **Strategy Pattern (Scorers)**: La lógica que dictamina si una rotación cuenta como acierto (Parte A: finaliza en 0; Parte B: pasa o toca el 0) se abstrae mediante la interfaz `RotationScorer` e implementaciones concretas `EndAtZeroScorer` y `PassThroughZeroScorer`, facilitando la extensibilidad sin alterar el orquestador principal.
+El diseño de esta solución se ha construido sobre los pilares de la calidad de software, separando responsabilidades y garantizando la mantenibilidad del código:
+
+*   **Principio de Responsabilidad Única (SRP):** Cada módulo en el sistema se centra en una tarea específica. Por ejemplo, `TotalScorer` solo calcula puntos y `RotationReader` solo procesa texto, asegurando que cada clase tenga una única razón para cambiar y sea más fácil de probar.
+*   **Abstracción y Diseño por Contrato:** Se utilizan interfaces (`TotalScorer` y `RotationReader`) como un contrato que define métodos públicos, ocultando detalles complejos de implementación. Esto facilita comprender el comportamiento del código sin necesidad de analizar operaciones interconectadas.
+*   **Bajo Acoplamiento e Inyección de Dependencias:** El `Day01Solver` no crea sus propias dependencias, sino que estas se inyectan desde fuera separando la creación del objeto con su uso, reduciendo la dependencia interna y permitiendo reemplazar módulos sin afectar al estado del sistema.
+*   **Principio Abierto Cerrado (OCP):** El diseño permite añadir nuevas reglas de puntuación creando nuevas clases, extendiendo el comportamiento sin necesidad de modificar el código existente.
+*   **Principio de Sustitución de Liskov (LSP):** Cualquier objeto de un subtipo (como `EndAtZero` y `PassThroughZero`) puede sustituir a un supertipo (`TotalScorer`) garantizando la interoperabilidad sin alterar la correctitud del programa.
+*   **Principio de Inversión de Dependencias (DIP):** El módulo de alto nivel (`Day01Solver`) no depende de las implementaciones concretas de bajo nivel, sino que depende directamente de las abstracciones.
 
 ---
 
-## Principios de Diseño Aplicados
+## Mecanismos del Lenguaje
 
-Durante la implementación de este día se han respetado rigurosamente los siguientes principios de diseño:
+Para llegar a cabo esta arquitectura, se han empleado las siguientes características avanzadas de Java:
 
-*   **Principio de Responsabilidad Única (SRP)**: Cada clase tiene un único propósito. `StringRotationReader` se encarga exclusivamente de interpretar el texto de entrada, `Dial` maneja la física del dispositivo circular y los *Scorers* evalúan las reglas de puntuación de forma aislada.
-*   **Principio Abierto/Cerrado (OCP)**: Gracias al patrón Strategy (`RotationScorer`), el sistema está abierto a la extensión (nuevas formas de puntuar, como en la Parte B) pero cerrado a la modificación (el `Day01Solver` no altera su núcleo).
-*   **Principio de Inversión de Dependencias (DIP)**: El orquestador `Day01Solver` depende exclusivamente de abstracciones (`RotationReader` y `RotationScorer`), no de sus implementaciones concretas, lo que facilita enormemente la inyección de dependencias y la realización de pruebas unitarias (TDD).
-*   **Principio DRY (Don't Repeat Yourself)**: La lógica matemática subyacente al movimiento en módulo 100 está confinada exclusivamente a la clase `Dial`, lo que impide la redundancia algorítmica y los posibles desajustes si cambian los límites del dial en el futuro.
+*   **Polimorfismo (Upcasting):** Las instancias de tipos específicos se asignan de forma automática y segura a variables de supertipo (interfaz), permitiendo trabajar con los objetos de manera genérica.
+*   **API de Streams:** Se utiliza para el procesamiento declarativo y funcional del archivo de entrada en `ObtainRotation`. Mediante operaciones intermedias (como `map` o `filter`) y operaciones terminales (como `collect`), se transforma el texto en objetos manejables.
+*   **Clases Internas de Clase (Static):** Entidades inmutables como el `Dial` pueden ser encapsuladas como clases estáticas internas, ya que pertenecen lógicamente a la estructura pero no necesitan acceso a los miembros de la instancia externa.
