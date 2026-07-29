@@ -1,0 +1,18 @@
+package software.aoc.day01.b;
+
+import software.aoc.SafeSolver;
+import software.aoc.day01.Day01Solver;
+import software.aoc.day01.ObtainRotation;
+import software.aoc.day01.RotationReader;
+import software.aoc.day01.TotalScorer;
+
+public class Day01BSolver implements SafeSolver {
+
+    @Override
+    public long solve(String input) {
+        RotationReader reader = new ObtainRotation();
+        TotalScorer scorer = new PassThroughZero();
+        Day01Solver coreSolver = new Day01Solver(reader, scorer);
+        return coreSolver.execute(input);
+    }
+}

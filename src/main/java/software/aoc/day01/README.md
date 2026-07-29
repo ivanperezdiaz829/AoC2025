@@ -11,31 +11,55 @@ El objetivo de este reto es descifrar la combinación de seguridad de la entrada
 
 ## Explicación de las Relaciones y Elementos
 
-- **Day01Solver** implementa la interfaz **SafeSolver**, exponiendo así únicamente al método público `solve``.
-- 
+*   **Implementación (`..|>`):** `Day01ASolver` y `Day01BSolver` implementan la interfaz `SafeSolver`, exponiendo así únicamente el método público `solve` hacia el exterior.
+*   **Ensamblaje e Inyección:** Los solvers específicos (`Day01ASolver/B`) instancian las dependencias correctas (ej. `EndAtZero`) y se las inyectan al motor principal (`Day01Solver`), el cual ejecuta el algoritmo de forma agnóstica a través de su método `execute`.
+*   **Composición y Uso (`*--` y `..>`):** `Day01Solver` contiene a `RotationReader` y `TotalScorer`, delegando en ellos. A su vez, todos los dominios se comunican de forma fuertemente tipada utilizando los Records inmutables `Dial` y `Rotation`.
 
 ---
 
 ## Arquitectura de Clases y Responsabilidades
 
-- **El Orquestador:**
-    *  `Day01Solver` **(Clase):** Actúa como el cliente principal de la inyección de dependencias que contiene referencias a `RotationReader` y `TotalScorer` orquestando el flujo (lee las instrucciones, itera sobre ellas e invoca al evaluador de puntos).
-- **Dominio de Lectura (Abstracción de Datos):**
-    *  `RotationReader` **(Interfaz):** Establece el contrato público para la lectura de datos.
-    *  `ObtainRotation` **(Clase):** Implementa el contrato utilizando la API de Streams de Java para transformar el archivo de texto en una lista de instrucciones procesables.
+- **Los Ensambladores y el Motor Principal:**
+  *   `SafeSolver` **(Interfaz):** Contrato global del repositorio para la ejecución de cualquier día.
+  *   `Day01ASolver` / `Day01BSolver` **(Clases):** Implementan `SafeSolver`. Configuran las dependencias concretas para la Parte A o B y se las pasan al motor genérico.
+  *   `Day01Solver` **(Clase):** Actúa como el motor principal agnóstico. Recibe las dependencias inyectadas por constructor (`RotationReader` y `TotalScorer`) y orquesta el flujo (lee, itera, gira el dial y evalúa puntos).
+- **Dominio de Lectura (Abstracción y Value Objects):**
+  *   `RotationReader` **(Interfaz):** Establece el contrato público para la lectura de datos.
+  *   `ObtainRotation` **(Clase):** Implementa el contrato utilizando la API de Streams de Java para transformar el archivo de texto en una lista de objetos `Rotation`.
+  *   `Rotation` **(Record):** *Value Object* inmutable que encapsula la instrucción analizada (`dirección` y `pasos`), liberando al resto del sistema de la responsabilidad de parsear *Strings*.
 - **Dominio de Puntuación (Polimorfismo):**
-    *  `TotalScorer` **(Interfaz):** Interfaz que define el contrato que calcula la puntuación, permitiendo la inyección de lógica de negocio.
-    *  `EndAtZero` **(Clase):** Implementación concreta de la Parte A.
-    *  `PassThroughZero` **(Clase):** Implementación concreta de la Parte B.
+  *   `TotalScorer` **(Interfaz):** Interfaz que define el contrato `calculateScore(oldDial, newDial, rotation)` permitiendo la inyección de la lógica de negocio.
+  *   `EndAtZero` **(Clase):** Implementación concreta de la Parte A.
+  *   `PassThroughZero` **(Clase):** Implementación concreta de la Parte B.
 - **Dominio de Estado (Inmutabilidad):**
-    * `Dial` **(Record):** Modela el comportamiento físico de la caja fuerte. Actúa como módulo altamente cohesivo que aplica la matemática del módulo circular para calcular nuevas posiciones y retorna siempre un nuevo estado evitando así la mutación.
+  *   `Dial` **(Record):** Modela el comportamiento físico de la caja fuerte. Actúa como un módulo altamente cohesivo que aplica la matemática del módulo circular recibiendo un objeto `Rotation` para calcular la nueva posición, retornando siempre un nuevo estado para evitar la mutación.
 
 ```mermaid
 classDiagram
+    class SafeSolver {
+        <<interface>>
+        +solve(input: String) long
+    }
+
+    class Day01ASolver {
+        +solve(input: String) long
+    }
+
+    class Day01BSolver {
+        +solve(input: String) long
+    }
+
     class Day01Solver {
         -reader: RotationReader
         -scorer: TotalScorer
-        +solve(input: String) long
+        +execute(input: String) long
+    }
+
+    class Rotation {
+        <<record>>
+        -direction: char
+        -steps: int
+        +fromString(raw: String)$ Rotation
     }
 
     class RotationReader {
@@ -49,35 +73,43 @@ classDiagram
 
     class TotalScorer {
         <<interface>>
-        +calculateScore(oldDial: Dial, newDial: Dial) int
+        +calculateScore(oldDial: Dial, newDial: Dial, rotation: Rotation) int
     }
 
     class EndAtZero {
-        +calculateScore(oldDial: Dial, newDial: Dial) int
+        +calculateScore(oldDial: Dial, newDial: Dial, rotation: Rotation) int
     }
 
     class PassThroughZero {
-        +calculateScore(oldDial: Dial, newDial: Dial) int
+        +calculateScore(oldDial: Dial, newDial: Dial, rotation: Rotation) int
     }
 
     class Dial {
         <<record>>
         -position: int
-        +rotate(instruction: String) Dial
+        +rotate(rotation: Rotation) Dial
     }
 
-    %% Relaciones de Agregación / Composición
-    Day01Solver *-- RotationReader
-    Day01Solver *-- TotalScorer
-    
     %% Relaciones de Implementación
+    SafeSolver <|.. Day01ASolver : implementa
+    SafeSolver <|.. Day01BSolver : implementa
     RotationReader <|.. ObtainRotation : implementa
     TotalScorer <|.. EndAtZero : implementa
     TotalScorer <|.. PassThroughZero : implementa
     
-    %% Relación de Uso
-    Day01Solver ..> Dial : instancia
+    %% Relaciones de Orquestación e Inyección
+    Day01ASolver ..> Day01Solver : ensambla
+    Day01BSolver ..> Day01Solver : ensambla
+    Day01Solver *-- RotationReader : inyecta
+    Day01Solver *-- TotalScorer : inyecta
+    
+    %% Dependencias de Dominio (Value Objects e Inmutabilidad)
+    ObtainRotation ..> Rotation : crea
+    Day01Solver ..> Dial : coordina
+    Day01Solver ..> Rotation : itera
     TotalScorer ..> Dial : evalúa
+    TotalScorer ..> Rotation : evalúa
+    Dial ..> Rotation : usa
 ```
 
 ---
