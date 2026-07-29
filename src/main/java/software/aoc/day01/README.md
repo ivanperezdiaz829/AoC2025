@@ -11,9 +11,9 @@ El objetivo de este reto es descifrar la combinación de seguridad de la entrada
 
 ## Explicación de las Relaciones y Elementos
 
-*   **Implementación (`..|>`):** `Day01ASolver` y `Day01BSolver` implementan la interfaz `SafeSolver`, exponiendo así únicamente el método público `solve` hacia el exterior.
+*   **Implementación:** `Day01ASolver` y `Day01BSolver` implementan la interfaz `SafeSolver`, exponiendo así únicamente el método público `solve` hacia el exterior.
 *   **Ensamblaje e Inyección:** Los solvers específicos (`Day01ASolver/B`) instancian las dependencias correctas (ej. `EndAtZero`) y se las inyectan al motor principal (`Day01Solver`), el cual ejecuta el algoritmo de forma agnóstica a través de su método `execute`.
-*   **Composición y Uso (`*--` y `..>`):** `Day01Solver` contiene a `RotationReader` y `TotalScorer`, delegando en ellos. A su vez, todos los dominios se comunican de forma fuertemente tipada utilizando los Records inmutables `Dial` y `Rotation`.
+*   **Composición y Uso:** `Day01Solver` contiene a `RotationReader` y `TotalScorer`, delegando en ellos. A su vez, todos los dominios se comunican de forma fuertemente tipada utilizando los Records inmutables `Dial` y `Rotation`.
 
 ---
 

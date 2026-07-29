@@ -4,22 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="Day01 readme updated">
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/SafeSolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day01/Dial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day01/ObtainRotation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day01/Rotation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day01/RotationReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day01/TotalScorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day01/a/Day01ASolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day01/a/EndAtZero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day01/b/Day01BSolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day01/b/PassThroughZero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day01/a/Day01ASolverTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day01/b/Day01BSolverTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day01/Day01Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day01/Day01Solver.java" afterDir="false" />
+    <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="Feat: Day01 A and B solved">
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day01/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day01/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -325,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785320775663</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Feat: Day01 A and B solved">
+      <option name="closed" value="true" />
+      <created>1785358375524</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1785358375524</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +340,8 @@
     <MESSAGE value="First Commit" />
     <MESSAGE value="Day01 readme updated and added" />
     <MESSAGE value="Day01 readme updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day01 readme updated" />
+    <MESSAGE value="Feat: Day01 A and B solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: Day01 A and B solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
