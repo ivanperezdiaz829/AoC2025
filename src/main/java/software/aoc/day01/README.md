@@ -11,7 +11,7 @@ El objetivo de este reto es descifrar la combinación de seguridad de la entrada
 
 ## Explicación de las Relaciones y Elementos
 
-*   **Implementación:** `Day01ASolver` y `Day01BSolver` implementan la interfaz `SafeSolver`, exponiendo así únicamente el método público `solve` hacia el exterior.
+*   **Implementación:** `Day02ASolver` y `Day01BSolver` implementan la interfaz `SafeSolver`, exponiendo así únicamente el método público `solve` hacia el exterior.
 *   **Ensamblaje e Inyección:** Los solvers específicos (`Day01ASolver/B`) instancian las dependencias correctas (ej. `EndAtZero`) y se las inyectan al motor principal (`Day01Solver`), el cual ejecuta el algoritmo de forma agnóstica a través de su método `execute`.
 *   **Composición y Uso:** `Day01Solver` contiene a `RotationReader` y `TotalScorer`, delegando en ellos. A su vez, todos los dominios se comunican de forma fuertemente tipada utilizando los Records inmutables `Dial` y `Rotation`.
 
@@ -21,7 +21,7 @@ El objetivo de este reto es descifrar la combinación de seguridad de la entrada
 
 - **Los Ensambladores y el Motor Principal:**
   *   `SafeSolver` **(Interfaz):** Contrato global del repositorio para la ejecución de cualquier día.
-  *   `Day01ASolver` / `Day01BSolver` **(Clases):** Implementan `SafeSolver`. Configuran las dependencias concretas para la Parte A o B y se las pasan al motor genérico.
+  *   `Day02ASolver` / `Day01BSolver` **(Clases):** Implementan `SafeSolver`. Configuran las dependencias concretas para la Parte A o B y se las pasan al motor genérico.
   *   `Day01Solver` **(Clase):** Actúa como el motor principal agnóstico. Recibe las dependencias inyectadas por constructor (`RotationReader` y `TotalScorer`) y orquesta el flujo (lee, itera, gira el dial y evalúa puntos).
 - **Dominio de Lectura (Abstracción y Value Objects):**
   *   `RotationReader` **(Interfaz):** Establece el contrato público para la lectura de datos.
@@ -36,80 +36,69 @@ El objetivo de este reto es descifrar la combinación de seguridad de la entrada
 
 ```mermaid
 classDiagram
-    class SafeSolver {
-        <<interface>>
-        +solve(input: String) long
-    }
+  class SafeSolver {
+    <<interface>>
+    +solve(input: String) long
+  }
 
-    class Day01ASolver {
-        +solve(input: String) long
-    }
+  class Day02ASolver {
+    +solve(input: String) long
+  }
 
-    class Day01BSolver {
-        +solve(input: String) long
-    }
+  class Day02BSolver {
+    +solve(input: String) long
+  }
 
-    class Day01Solver {
-        -reader: RotationReader
-        -scorer: TotalScorer
-        +execute(input: String) long
-    }
+  class Day02Solver {
+    -reader: RangeReader
+    -validator: IdValidator
+    +execute(input: String) long
+  }
 
-    class Rotation {
-        <<record>>
-        -direction: char
-        -steps: int
-        +fromString(raw: String)$ Rotation
-    }
+  class IdRange {
+    <<record>>
+    -start: long
+    -end: long
+  }
 
-    class RotationReader {
-        <<interface>>
-        +readRotation(input: String) List~Rotation~
-    }
+  class RangeReader {
+    <<interface>>
+    +readRanges(input: String) List~IdRange~
+  }
 
-    class ObtainRotation {
-        +readRotation(input: String) List~Rotation~
-    }
+  class ObtainRanges {
+    +readRanges(input: String) List~IdRange~
+  }
 
-    class TotalScorer {
-        <<interface>>
-        +calculateScore(oldDial: Dial, newDial: Dial, rotation: Rotation) int
-    }
+  class IdValidator {
+    <<interface>>
+    +isInvalid(id: long) boolean
+  }
 
-    class EndAtZero {
-        +calculateScore(oldDial: Dial, newDial: Dial, rotation: Rotation) int
-    }
+  class RepeatedSequenceValidator {
+    +isInvalid(id: long) boolean
+  }
 
-    class PassThroughZero {
-        +calculateScore(oldDial: Dial, newDial: Dial, rotation: Rotation) int
-    }
+  class FutureRuleValidator {
+    +isInvalid(id: long) boolean
+  }
 
-    class Dial {
-        <<record>>
-        -position: int
-        +rotate(rotation: Rotation) Dial
-    }
+%% Relaciones de Implementación
+  SafeSolver <|.. Day02ASolver : implementa
+  SafeSolver <|.. Day02BSolver : implementa
+  RangeReader <|.. ObtainRanges : implementa
+  IdValidator <|.. RepeatedSequenceValidator : implementa
+  IdValidator <|.. FutureRuleValidator : implementa
 
-    %% Relaciones de Implementación
-    SafeSolver <|.. Day01ASolver : implementa
-    SafeSolver <|.. Day01BSolver : implementa
-    RotationReader <|.. ObtainRotation : implementa
-    TotalScorer <|.. EndAtZero : implementa
-    TotalScorer <|.. PassThroughZero : implementa
-    
-    %% Relaciones de Orquestación e Inyección
-    Day01ASolver ..> Day01Solver : ensambla
-    Day01BSolver ..> Day01Solver : ensambla
-    Day01Solver *-- RotationReader : inyecta
-    Day01Solver *-- TotalScorer : inyecta
-    
-    %% Dependencias de Dominio (Value Objects e Inmutabilidad)
-    ObtainRotation ..> Rotation : crea
-    Day01Solver ..> Dial : coordina
-    Day01Solver ..> Rotation : itera
-    TotalScorer ..> Dial : evalúa
-    TotalScorer ..> Rotation : evalúa
-    Dial ..> Rotation : usa
+%% Relaciones de Orquestación e Inyección
+  Day02ASolver ..> Day02Solver : ensambla
+  Day02BSolver ..> Day02Solver : ensambla
+  Day02Solver *-- RangeReader : inyecta
+  Day02Solver *-- IdValidator : inyecta
+
+%% Dependencias de Dominio (Value Objects e Inmutabilidad)
+  ObtainRanges ..> IdRange : crea
+  Day02Solver ..> IdRange : itera
 ```
 
 ---
