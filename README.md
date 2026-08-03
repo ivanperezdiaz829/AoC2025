@@ -48,7 +48,7 @@ Los archivos de entrada (inputs) de los puzzles no se suben al repositorio. Para
 
 | Día | Directorio | Nombre del Archivo |
 | :--- | :--- | :--- |
-| **Día 01** | `src/test/resources/d01-a/` | `orders.txt` |
+| **Día 01** | `src/test/resources/d01-a/` | `ids.txt` |
 | **Día 02** | `src/test/resources/d02-a/` | `id.txt` |
 | **Día 03** | `src/test/resources/d03-a/` | `battery.txt` |
 | **Día 04** | `src/test/resources/d04-a/` | `input.txt` |
