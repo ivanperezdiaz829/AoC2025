@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="Test packages with the day02 version A input added">
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day02/IdRange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day02/IdValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day02/ObtainRanges.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day02/RangeReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day02/a/RepeatedSequenceValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day02/b/AtLeastTwiceSequenceValidator.java" afterDir="false" />
+    <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="Day02 A and B implemented">
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day03/Day03Solver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day03/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day02/Day02Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day02/Day02Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day02/a/Day02ASolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day02/a/Day02ASolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day02/b/Day02BSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day02/b/Day02BSolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/software/aoc/day02/a/Day02ASolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day02/a/Day02ASolverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,46 +46,49 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "JUnit.Day01ASolverTest.executor": "Run",
-    "JUnit.Day01ASolverTest.shouldSolveExampleCorrectly.executor": "Run",
-    "JUnit.Day01ASolverTest.shouldSolveRealInput.executor": "Run",
-    "JUnit.Day01BSolverTest.executor": "Run",
-    "JUnit.Day02ASolverTest.executor": "Run",
-    "JUnit.Day02ASolverTest.shouldSolveExampleCorrectly.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.jshint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.jshint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;JUnit.Day01ASolverTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Day01ASolverTest.shouldSolveExampleCorrectly.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Day01ASolverTest.shouldSolveRealInput.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Day01BSolverTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Day02ASolverTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Day02ASolverTest.shouldSolveExampleCorrectly.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Day02BSolverTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ivanp\Desktop\AoC2025\src\test\resources\d01-a" />
       <recent name="C:\Users\ivanp\Desktop\AoC2025\src\test\resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="software.aoc.day02.a" />
+      <recent name="software.aoc.day02.b" />
       <recent name="software.aoc.day01.a" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.Day01ASolverTest">
     <configuration name="Day01ASolverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Aoc25" />
       <extension name="coverage">
@@ -373,7 +367,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785775367610</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Day02 A and B implemented">
+      <option name="closed" value="true" />
+      <created>1785777989872</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1785777989872</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,7 +400,8 @@
     <MESSAGE value="Day01 README.md minnor improvements" />
     <MESSAGE value="Day02 README and basic packages added" />
     <MESSAGE value="Test packages with the day02 version A input added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test packages with the day02 version A input added" />
+    <MESSAGE value="Day02 A and B implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Day02 A and B implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
