@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="Day03 A and B finalized">
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/Day04Solver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/README.md" afterDir="false" />
+    <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="Day04 README added.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/AccessRule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/GridReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/ObtainGrid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/PaperGrid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/a/Day04ASolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/a/FewerThanFourAdjacentRule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/b/Day04BSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day04/a/Day04ASolverTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day04/b/Day04BSolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day04/Day04Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/Day04Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day04/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Record" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -60,6 +70,8 @@
     "JUnit.Day02BSolverTest.executor": "Run",
     "JUnit.Day03ASolverTest.executor": "Run",
     "JUnit.Day03BSolverTest.executor": "Run",
+    "JUnit.Day04ASolverTest.executor": "Run",
+    "JUnit.Day04BSolverTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -78,7 +90,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -87,6 +99,7 @@
       <recent name="C:\Users\ivanp\Desktop\AoC2025\src\test\resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="software.aoc.day04.a" />
       <recent name="software.aoc.day02.a" />
       <recent name="software.aoc.day02.b" />
       <recent name="software.aoc.day01.a" />
@@ -443,7 +456,15 @@
       <option name="project" value="LOCAL" />
       <updated>1786304897500</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Day04 README added.">
+      <option name="closed" value="true" />
+      <created>1786313537014</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1786313537015</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +495,8 @@
     <MESSAGE value="fix(README): Day02 README visual problem solved" />
     <MESSAGE value="fix(README): Day01 README visual problem solved" />
     <MESSAGE value="Day03 A and B finalized" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day03 A and B finalized" />
+    <MESSAGE value="Day04 README added." />
+    <option name="LAST_COMMIT_MESSAGE" value="Day04 README added." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
