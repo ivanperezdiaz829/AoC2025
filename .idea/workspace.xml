@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="fix(README): Day03 README visual problem solved" />
+    <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="fix(README): Day01 README visual problem solved" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -395,7 +395,31 @@
       <option name="project" value="LOCAL" />
       <updated>1786302555702</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fix(README): Day03 README visual problem solved">
+      <option name="closed" value="true" />
+      <created>1786302714124</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1786302714124</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fix(README): Day02 README visual problem solved">
+      <option name="closed" value="true" />
+      <created>1786302789245</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1786302789245</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix(README): Day01 README visual problem solved">
+      <option name="closed" value="true" />
+      <created>1786302860710</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1786302860710</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,7 +447,9 @@
     <MESSAGE value="Day02 A and B implemented" />
     <MESSAGE value="Day03 Readme added" />
     <MESSAGE value="fix(README): Day03 README visual problem solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(README): Day03 README visual problem solved" />
+    <MESSAGE value="fix(README): Day02 README visual problem solved" />
+    <MESSAGE value="fix(README): Day01 README visual problem solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(README): Day01 README visual problem solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
