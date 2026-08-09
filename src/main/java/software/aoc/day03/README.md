@@ -36,7 +36,7 @@ El objetivo de este reto es ayudar a un Elfo a restaurar la energía de las esca
 ```mermaid
 classDiagram
     class SafeSolver {
-        <>
+        <<interface>>
         +solve(input: String) long
     }
 
@@ -73,17 +73,17 @@ classDiagram
         +optimize(bank: BatteryBank) int
     }
 
-    %% Relaciones de Implementación
+%% Relaciones de Implementación
     SafeSolver <|.. Day03ASolver : implementa
     BankReader <|.. ObtainBanks : implementa
     JoltageOptimizer <|.. MaxTwoDigitOptimizer : implementa
-    
-    %% Relaciones de Orquestación e Inyección
+
+%% Relaciones de Orquestación e Inyección
     Day03ASolver ..> Day03Solver : ensambla
     Day03Solver *-- BankReader : inyecta
     Day03Solver *-- JoltageOptimizer : inyecta
-    
-    %% Dependencias de Dominio
+
+%% Dependencias de Dominio
     ObtainBanks ..> BatteryBank : crea
     Day03Solver ..> BatteryBank : itera
     JoltageOptimizer ..> BatteryBank : evalúa
