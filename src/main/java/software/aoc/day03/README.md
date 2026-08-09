@@ -36,7 +36,7 @@ El objetivo de este reto es ayudar a un Elfo a restaurar la energía de las esca
 ```mermaid
 classDiagram
     class SafeSolver {
-        <<interface>>
+        <>
         +solve(input: String) long
     }
 
