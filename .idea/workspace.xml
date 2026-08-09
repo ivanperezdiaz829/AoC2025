@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="Day02 A and B implemented">
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day03/Day03Solver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day03/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="fix(README): Day03 README visual problem solved" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -375,7 +371,31 @@
       <option name="project" value="LOCAL" />
       <updated>1785777989872</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Day03 Readme added">
+      <option name="closed" value="true" />
+      <created>1786302270460</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1786302270460</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix(README): Day03 README visual problem solved">
+      <option name="closed" value="true" />
+      <created>1786302484600</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1786302484600</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix(README): Day03 README visual problem solved">
+      <option name="closed" value="true" />
+      <created>1786302555702</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1786302555702</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,7 +421,9 @@
     <MESSAGE value="Day02 README and basic packages added" />
     <MESSAGE value="Test packages with the day02 version A input added" />
     <MESSAGE value="Day02 A and B implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day02 A and B implemented" />
+    <MESSAGE value="Day03 Readme added" />
+    <MESSAGE value="fix(README): Day03 README visual problem solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(README): Day03 README visual problem solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

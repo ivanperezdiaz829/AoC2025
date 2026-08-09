@@ -36,7 +36,7 @@ El objetivo de este reto es ayudar a un Elfo a restaurar la energía de las esca
 ```mermaid
 classDiagram
     class SafeSolver {
-        <<interface>>
+        «interface»
         +solve(input: String) long
     }
 
@@ -51,12 +51,12 @@ classDiagram
     }
 
     class BatteryBank {
-        <<record>>
+        «record»
         -ratings: String
     }
 
     class BankReader {
-        <<interface>>
+        «interface»
         +readBanks(input: String) List~BatteryBank~
     }
 
@@ -65,7 +65,7 @@ classDiagram
     }
 
     class JoltageOptimizer {
-        <<interface>>
+        «interface»
         +optimize(bank: BatteryBank) int
     }
 
