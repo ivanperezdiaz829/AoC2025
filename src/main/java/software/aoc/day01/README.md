@@ -37,7 +37,7 @@ El objetivo de este reto es descifrar la combinación de seguridad de la entrada
 ```mermaid
 classDiagram
   class SafeSolver {
-    <<interface>>
+    «interface»
     +solve(input: String) long
   }
 
@@ -56,13 +56,13 @@ classDiagram
   }
 
   class IdRange {
-    <<record>>
+    «record»
     -start: long
     -end: long
   }
 
   class RangeReader {
-    <<interface>>
+    «interface»
     +readRanges(input: String) List~IdRange~
   }
 
@@ -71,7 +71,7 @@ classDiagram
   }
 
   class IdValidator {
-    <<interface>>
+    «interface»
     +isInvalid(id: long) boolean
   }
 
