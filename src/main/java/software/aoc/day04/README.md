@@ -35,50 +35,69 @@ El objetivo de este reto es optimizar el trabajo de las carretillas elevadoras e
 classDiagram
     class SafeSolver {
         «interface»
-        +solve(input: String) long
+        +solve(input: String) : long
     }
 
     class Day04ASolver {
-        +solve(input: String) long
+        +solve(input: String) : long
     }
 
     class Day04BSolver {
-        +solve(input: String) long
+        +solve(input: String) : long
     }
 
     class Day04Solver {
         -reader: GridReader
         -rule: AccessRule
-        +execute(input: String) long
-        +executeSimulation(input: String) long
-        -findAccessibleRolls(paperGrid: PaperGrid) List~int[]~
+        -strategy: RemovalStrategy
+        +execute(input: String) : long
     }
 
     class PaperGrid {
         «record»
         -rows: List~String~
-        +isRoll(row: int, col: int) boolean
-        +height() int
-        +width() int
-        +removeRolls(rollsToRemove: List~int[]~) PaperGrid
+        +isRoll(position: Position) : boolean
+        +height() : int
+        +width() : int
+        +removeRolls(rollsToRemove: List<Position>) : PaperGrid
+        +findAccessibleRolls(rule: AccessRule) : List<Position>
     }
 
     class GridReader {
         «interface»
-        +readGrid(input: String) PaperGrid
+        +readGrid(input: String) : PaperGrid
     }
 
     class ObtainGrid {
-        +readGrid(input: String) PaperGrid
+        +readGrid(input: String) : PaperGrid
+    }
+    
+    class RemovalStrategy {
+        «interface»
+        +run(paperGrid: PaperGrid, rule: AccessRule) : long
+    }
+    
+    class CascadingRemovalStrategy {
+        +run(paperGrid: PaperGrid, rule: AccessRule) : long
+    }
+
+    class SinglePassStrategy {
+        +run(paperGrid: PaperGrid, rule: AccessRule) : long
     }
 
     class AccessRule {
         «interface»
-        +canAccess(paperGrid: PaperGrid, row: int, col: int) boolean
+        +canAccess(paperGrid: PaperGrid, position: Position) : boolean
     }
 
     class FewerThanFourAdjacentRule {
-        +canAccess(paperGrid: PaperGrid, row: int, col: int) boolean
+        +canAccess(paperGrid: PaperGrid, position: Position) : boolean
+    }
+    
+    class Position {
+      «record»
+      -row: int
+      -col: int
     }
 
 %% Relaciones de Implementación
@@ -86,17 +105,23 @@ classDiagram
     SafeSolver <|.. Day04BSolver : implementa
     GridReader <|.. ObtainGrid : implementa
     AccessRule <|.. FewerThanFourAdjacentRule : implementa
+    RemovalStrategy <|.. SinglePassStrategy : implementa
+    RemovalStrategy <|.. CascadingRemovalStrategy : implementa
 
 %% Relaciones de Orquestación e Inyección
     Day04ASolver ..> Day04Solver : ensambla
     Day04BSolver ..> Day04Solver : ensambla
     Day04Solver *-- GridReader : inyecta
     Day04Solver *-- AccessRule : inyecta
+    Day04Solver *-- RemovalStrategy : inyecta
 
 %% Dependencias de Dominio
+    PaperGrid ..> Position : usa
+    AccessRule ..> Position : usa
     ObtainGrid ..> PaperGrid : crea
-    Day04Solver ..> PaperGrid : itera
+    Day04Solver ..> PaperGrid : coordina
     AccessRule ..> PaperGrid : evalúa
+    RemovalStrategy ..> PaperGrid: evalúa
 ```
 
 ---
