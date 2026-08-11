@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="Day04 A and B finalized">
+    <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="fix(README): Day04 architecture refactorized">
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/RemovalStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/a/SinglePassStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/b/CascadingRemovalStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day04/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day04/AccessRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/AccessRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day04/Day04Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/Day04Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day04/PaperGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/PaperGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day04/a/Day04ASolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/a/Day04ASolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day04/a/FewerThanFourAdjacentRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/a/FewerThanFourAdjacentRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day04/b/Day04BSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/b/Day04BSolver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -462,7 +471,15 @@
       <option name="project" value="LOCAL" />
       <updated>1786316276541</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="fix(README): Day04 architecture refactorized">
+      <option name="closed" value="true" />
+      <created>1786443572663</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1786443572663</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,7 +512,8 @@
     <MESSAGE value="Day03 A and B finalized" />
     <MESSAGE value="Day04 README added." />
     <MESSAGE value="Day04 A and B finalized" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day04 A and B finalized" />
+    <MESSAGE value="fix(README): Day04 architecture refactorized" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(README): Day04 architecture refactorized" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -507,5 +525,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
