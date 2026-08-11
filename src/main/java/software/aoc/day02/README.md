@@ -13,7 +13,7 @@ El archivo de entrada consiste en una única línea con múltiples rangos de IDs
 
 ## Explicación de las Relaciones y Elementos
 
-*   **Implementación:** `Day02ASolver` y `Day02BSolver` implementan la interfaz `SafeSolver`, exponiendo así únicamente el método público `solve` hacia el exterior.
+*   **Implementación:** `Day02ASolver` y `Day02BSolver` implementan la interfaz `Solver`, exponiendo así únicamente el método público `solve` hacia el exterior.
 *   **Ensamblaje e Inyección:** Los solvers específicos (`Day02ASolver/B`) instancian las dependencias correctas (ej. `RepeatedSequenceValidator`) y se las inyectan al motor principal (`Day02Solver`), el cual se ejecuta a través de su método `execute`.
 *   **Composición y Uso:** `Day02Solver` contiene `RangeReader` e `IdValidator`, delegando en ellos. A su vez, los dominios se comunican haciendo uso de un Record inmutable llamado `IdRange`.
 
@@ -22,8 +22,8 @@ El archivo de entrada consiste en una única línea con múltiples rangos de IDs
 ## Arquitectura de Clases y Responsabilidades
 
 - **Los Ensambladores y el Motor Principal:**
-    *   `SafeSolver` **(Interfaz):** Contrato global del repositorio para la ejecución de cualquier día.
-    *   `Day02ASolver` / `Day02BSolver` **(Clases):** Implementan `SafeSolver`. Configuran las dependencias concretas para la Parte A o B y se las pasan al motor genérico.
+    *   `Solver` **(Interfaz):** Contrato global del repositorio para la ejecución de cualquier día.
+    *   `Day02ASolver` / `Day02BSolver` **(Clases):** Implementan `Solver`. Configuran las dependencias concretas para la Parte A o B y se las pasan al motor genérico.
     *   `Day02Solver` **(Clase):** Actúa como el motor principal agnóstico. Recibe las dependencias inyectadas por constructor (`RangeReader` y `IdValidator`) y orquesta el flujo (lee los rangos, itera sobre los IDs y suma los que no cumplen la validación).
 - **Dominio de Lectura (Abstracción y Value Objects):**
     *   `RangeReader` **(Interfaz):** Establece el contrato público para la lectura de los rangos.

@@ -17,7 +17,7 @@ Cabe destacar que **todo el Advent of Code se va a hacer utilizando Java**. El p
 ### Características Principales
 * **Lenguaje Principal:** Desarrollado íntegramente en Java.
   * **Gestor de dependencias:** Compilación y ejecución de tests configurados a través de Maven.
-* **Diseño Homogéneo:** Uso de una interfaz estándar (`SafeSolver`) para la resolución de todas las partes, facilitando el testing individual de cada puzzle.
+* **Diseño Homogéneo:** Uso de una interfaz estándar (`Solver`) para la resolución de todas las partes, facilitando el testing individual de cada puzzle.
 
 ## Estructura del proyecto
 
@@ -40,7 +40,7 @@ Aoc25/
 Cada día sigue exactamente el siguiente patrón:
 - `DayXXASolver.java` → Parte A
 - `DayXXBSolver.java` → Parte B
-- Ambos implementan `SafeSolver` (`long solve(String input)`)
+- Ambos implementan `Solver` (`long solve(String input)`)
 
 ## Configuración de los Inputs
 

@@ -11,7 +11,7 @@ El objetivo de este reto es optimizar el trabajo de las carretillas elevadoras e
 
 ## Explicación de las Relaciones y Elementos
 
-*   **Implementación:** `Day04ASolver` implementa la interfaz `SafeSolver`, exponiendo así únicamente el método público `solve` hacia el exterior.
+*   **Implementación:** `Day04ASolver` implementa la interfaz `Solver`, exponiendo así únicamente el método público `solve` hacia el exterior.
 *   **Ensamblaje e Inyección:** El solver específico (`Day04ASolver` / `Day04BSolver`) instancia las dependencias correctas —incluyendo la estrategia de eliminación adecuada— y se las inyecta al motor principal (`Day04Solver`), el cual ejecuta el algoritmo de forma agnóstica a través de un único método público.
 *   **Composición y Uso:** `Day04Solver` contiene a `GridReader`, `AccessRule` y `RemovalStrategy`, delegando en ellos. A su vez, los dominios se comunican de forma fuertemente tipada utilizando los Records inmutables `PaperGrid` y `Position`.
 
@@ -20,8 +20,8 @@ El objetivo de este reto es optimizar el trabajo de las carretillas elevadoras e
 ## Arquitectura de Clases y Responsabilidades
 
 - **Los Ensambladores y el Motor Principal:**
-  *   `SafeSolver` **(Interfaz):** Contrato global del repositorio para la ejecución de cualquier día.
-  *   `Day04ASolver` / `Day04BSolver` **(Clases):** Implementan `SafeSolver`. Configuran las dependencias concretas para la Parte A y B (en particular, qué `RemovalStrategy` corresponde a cada una) y se las pasan al motor genérico.
+  *   `Solver` **(Interfaz):** Contrato global del repositorio para la ejecución de cualquier día.
+  *   `Day04ASolver` / `Day04BSolver` **(Clases):** Implementan `Solver`. Configuran las dependencias concretas para la Parte A y B (en particular, qué `RemovalStrategy` corresponde a cada una) y se las pasan al motor genérico.
   *   `Day04Solver` **(Clase):** Actúa como el motor principal agnóstico. Se limita a leer el input y delegar la ejecución completa en la `RemovalStrategy` inyectada, sin conocer si se trata de una pasada simple o de una simulación cíclica.
 - **Dominio de Lectura (Abstracción y Value Objects):**
   *   `GridReader` **(Interfaz):** Establece el contrato público para la extracción del mapa.

@@ -1,6 +1,6 @@
 package software.aoc.day04.b;
 
-import software.aoc.SafeSolver;
+import software.aoc.Solver;
 import software.aoc.day04.AccessRule;
 import software.aoc.day04.Day04Solver;
 import software.aoc.day04.GridReader;
@@ -8,7 +8,7 @@ import software.aoc.day04.ObtainGrid;
 import software.aoc.day04.RemovalStrategy;
 import software.aoc.day04.a.FewerThanFourAdjacentRule;
 
-public class Day04BSolver implements SafeSolver {
+public class Day04BSolver implements Solver {
 
     @Override
     public long solve(String input) {

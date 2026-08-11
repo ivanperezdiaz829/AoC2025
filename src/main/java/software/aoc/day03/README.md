@@ -11,7 +11,7 @@ El objetivo de este reto es ayudar a un Elfo a restaurar la energía de las esca
 
 ## Explicación de las Relaciones y Elementos
 
-*   **Implementación:** `Day03ASolver` y `Day03Solver` implementa la interfaz `SafeSolver`, exponiendo así únicamente el método público `solve` hacia el exterior.
+*   **Implementación:** `Day03ASolver` y `Day03Solver` implementa la interfaz `Solver`, exponiendo así únicamente el método público `solve` hacia el exterior.
 *   **Ensamblaje e Inyección:** Los solvers específicos (`Day03ASolver` y `Day03BSolver`) instancian las dependencias correctas (ej. `MaxTwoDigitOptimizer` y `MaxTwelveDigitOptimizer`) y se las inyectan al motor principal (`Day03Solver`), el cual ejecuta el algoritmo de forma agnóstica a través de su método `execute`.
 *   **Composición y Uso:** `Day03Solver` contiene a `BankReader` y `JoltageOptimizer`, delegando en ellos. A su vez, los dominios se comunican de forma fuertemente tipada utilizando el Record inmutable `BatteryBank`.
 
@@ -20,8 +20,8 @@ El objetivo de este reto es ayudar a un Elfo a restaurar la energía de las esca
 ## Arquitectura de Clases y Responsabilidades
 
 - **Los Ensambladores y el Motor Principal:**
-    *   `SafeSolver` **(Interfaz):** Contrato global del repositorio para la ejecución de cualquier día.
-    *   `Day03ASolver` / `Day03BSolver` **(Clases):** Implementan `SafeSolver`. Configura las dependencias concretas para la Parte A y se las pasa al motor genérico.
+    *   `Solver` **(Interfaz):** Contrato global del repositorio para la ejecución de cualquier día.
+    *   `Day03ASolver` / `Day03BSolver` **(Clases):** Implementan `Solver`. Configura las dependencias concretas para la Parte A y se las pasa al motor genérico.
     *   `Day03Solver` **(Clase):** Actúa como el motor principal agnóstico. Recibe las dependencias inyectadas por constructor (`BankReader` y `JoltageOptimizer`) y orquesta el flujo.
 - **Dominio de Lectura (Abstracción y Value Objects):**
     *   `BankReader` **(Interfaz):** Establece el contrato público para la extracción de los bancos de baterías.

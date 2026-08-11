@@ -1,7 +1,7 @@
 package software.aoc.day04.a;
 
 import org.junit.jupiter.api.Test;
-import software.aoc.SafeSolver;
+import software.aoc.Solver;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -26,7 +26,7 @@ class Day04ASolverTest {
                 @.@.@@@.@.
                 """;
 
-        SafeSolver solver = new Day04ASolver();
+        Solver solver = new Day04ASolver();
         long result = solver.solve(input);
 
         assertEquals(13, result, "El resultado del ejemplo debería ser 13");
@@ -37,7 +37,7 @@ class Day04ASolverTest {
         Path inputPath = Path.of("src", "test", "resources", "d04-a", "input.txt");
         String input = Files.readString(inputPath);
 
-        SafeSolver solver = new Day04ASolver();
+        Solver solver = new Day04ASolver();
         long result = solver.solve(input);
 
         System.out.println("Solución Día 04 Parte A: " + result);

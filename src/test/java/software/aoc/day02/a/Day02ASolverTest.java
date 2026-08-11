@@ -1,7 +1,7 @@
 package software.aoc.day02.a;
 
 import org.junit.jupiter.api.Test;
-import software.aoc.SafeSolver;
+import software.aoc.Solver;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -17,7 +17,7 @@ class Day02ASolverTest {
                 "1698522-1698528,446443-446449,38593856-38593862,565653-565659," +
                 "824824821-824824827,2121212118-2121212124";
 
-        SafeSolver solver = new Day02ASolver();
+        Solver solver = new Day02ASolver();
         long result = solver.solve(input);
 
         assertEquals(1227775554L, result, "El resultado del ejemplo debería ser 1227775554");
@@ -28,7 +28,7 @@ class Day02ASolverTest {
         Path inputPath = Path.of("src", "test", "resources", "d02-a", "ids.txt");
         String input = Files.readString(inputPath);
 
-        SafeSolver solver = new Day02ASolver();
+        Solver solver = new Day02ASolver();
         long result = solver.solve(input);
 
         System.out.println("Solución Día 02 Parte A: " + result);

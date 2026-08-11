@@ -1,5 +1,5 @@
 package software.aoc;
 
-public interface SafeSolver {
+public interface Solver {
     long solve(String input);
 }

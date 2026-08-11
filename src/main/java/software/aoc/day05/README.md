@@ -11,7 +11,7 @@ Tras atravesar el muro, los Elfos necesitan ayuda para determinar qué ingredien
 
 ## Explicación de las Relaciones y Elementos
 
-*   **Implementación:** `Day05ASolver` y `Day05BSolver` implementan `SafeSolver`, exponiendo únicamente el método público `solve` hacia el exterior.
+*   **Implementación:** `Day05ASolver` y `Day05BSolver` implementan `Solver`, exponiendo únicamente el método público `solve` hacia el exterior.
 *   **Ensamblaje e Inyección:** Cada solver específico configura la `InventoryStrategy` correspondiente a su parte y se la inyecta, junto con el `DatabaseReader`, al motor genérico `Day05Solver`.
 *   **Composición y Uso:** `Day05Solver` delega la ejecución completa en la estrategia inyectada, sin conocer si se trata de comprobar IDs disponibles o de fusionar rangos. Toda la lógica de comparación y fusión entre rangos vive en `IngredientsRange`, no en las estrategias que la consumen.
 
@@ -20,8 +20,8 @@ Tras atravesar el muro, los Elfos necesitan ayuda para determinar qué ingredien
 ## Arquitectura de Clases y Responsabilidades
 
 - **Los Ensambladores y el Motor Principal:**
-  *   `SafeSolver` **(Interfaz):** Contrato global del repositorio para la ejecución de cualquier día.
-  *   `Day05ASolver` / `Day05BSolver` **(Clases):** Implementan `SafeSolver`. Configuran la `InventoryStrategy` concreta para cada parte y se la pasan al motor genérico.
+  *   `Solver` **(Interfaz):** Contrato global del repositorio para la ejecución de cualquier día.
+  *   `Day05ASolver` / `Day05BSolver` **(Clases):** Implementan `Solver`. Configuran la `InventoryStrategy` concreta para cada parte y se la pasan al motor genérico.
   *   `Day05Solver` **(Clase):** Motor agnóstico que lee el input y delega íntegramente en la `InventoryStrategy` inyectada.
 - **Dominio de Lectura (Abstracción y Value Objects):**
   *   `DatabaseReader` **(Interfaz):** Contrato público para la extracción de la base de datos de rangos e IDs disponibles.

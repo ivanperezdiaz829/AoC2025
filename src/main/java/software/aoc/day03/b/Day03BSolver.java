@@ -1,12 +1,12 @@
 package software.aoc.day03.b;
 
-import software.aoc.SafeSolver;
+import software.aoc.Solver;
 import software.aoc.day03.BankReader;
 import software.aoc.day03.Day03Solver;
 import software.aoc.day03.JoltageOptimizer;
 import software.aoc.day03.ObtainBanks;
 
-public class Day03BSolver implements SafeSolver {
+public class Day03BSolver implements Solver {
 
     @Override
     public long solve(String input) {

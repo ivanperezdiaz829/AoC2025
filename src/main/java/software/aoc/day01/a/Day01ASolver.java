@@ -1,12 +1,12 @@
 package software.aoc.day01.a;
 
-import software.aoc.SafeSolver;
+import software.aoc.Solver;
 import software.aoc.day01.Day01Solver;
 import software.aoc.day01.ObtainRotation;
 import software.aoc.day01.RotationReader;
 import software.aoc.day01.TotalScorer;
 
-public class Day01ASolver implements SafeSolver {
+public class Day01ASolver implements Solver {
     @Override
     public long solve(String input) {
         RotationReader reader = new ObtainRotation();
