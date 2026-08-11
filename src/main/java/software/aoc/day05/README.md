@@ -36,17 +36,17 @@ El objetivo de este reto es ayudar a los Elfos a auditar su nuevo sistema de inv
 classDiagram
     class SafeSolver {
         «interface»
-        +solve(input: String) : long
+        +solve(input: String) long
     }
 
     class Day05ASolver {
-        +solve(input: String) : long
+        +solve(input: String) long
     }
 
     class Day05Solver {
         -reader: DatabaseReader
         -rule: FreshnessRule
-        +execute(input: String) : long
+        +execute(input: String) long
     }
 
     class InventoryDatabase {
@@ -59,25 +59,25 @@ classDiagram
         «record»
         -start: long
         -end: long
-        +contains(id: long) : boolean
+        +contains(id: long) boolean
     }
 
     class DatabaseReader {
         «interface»
-        +readDatabase(input: String) : InventoryDatabase
+        +readDatabase(input: String) InventoryDatabase
     }
 
     class ObtainDatabase {
-        +readDatabase(input: String) : InventoryDatabase
+        +readDatabase(input: String) InventoryDatabase
     }
 
     class FreshnessRule {
         «interface»
-        +isFresh(id: long, ranges: List~IngredientRange~) : boolean
+        +isFresh(id: long, ranges: List~IngredientRange~) boolean
     }
 
     class RangeOverlapFreshnessRule {
-        +isFresh(id: long, ranges: List~IngredientRange~) : boolean
+        +isFresh(id: long, ranges: List~IngredientRange~) boolean
     }
 
 %% Relaciones de Implementación
