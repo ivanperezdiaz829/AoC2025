@@ -43,9 +43,13 @@ classDiagram
         +solve(input: String) long
     }
 
+    class Day05BSolver {
+        +solve(input: String) long
+    }
+
     class Day05Solver {
         -reader: DatabaseReader
-        -rule: FreshnessRule
+        -strategy: InventoryStrategy
         +execute(input: String) long
     }
 
@@ -71,6 +75,20 @@ classDiagram
         +readDatabase(input: String) InventoryDatabase
     }
 
+    class InventoryStrategy {
+        «interface»
+        +calculate(database: InventoryDatabase) long
+    }
+
+    class AvailableIngredientsStrategy {
+        -rule: FreshnessRule
+        +calculate(database: InventoryDatabase) long
+    }
+
+    class MergedRangesStrategy {
+        +calculate(database: InventoryDatabase) long
+    }
+
     class FreshnessRule {
         «interface»
         +isFresh(id: long, ranges: List~IngredientRange~) boolean
@@ -82,19 +100,25 @@ classDiagram
 
 %% Relaciones de Implementación
     SafeSolver <|.. Day05ASolver : implementa
+    SafeSolver <|.. Day05BSolver : implementa
     DatabaseReader <|.. ObtainDatabase : implementa
+    InventoryStrategy <|.. AvailableIngredientsStrategy : implementa
+    InventoryStrategy <|.. MergedRangesStrategy : implementa
     FreshnessRule <|.. RangeOverlapFreshnessRule : implementa
 
 %% Relaciones de Orquestación e Inyección
     Day05ASolver ..> Day05Solver : ensambla
+    Day05BSolver ..> Day05Solver : ensambla
     Day05Solver *-- DatabaseReader : inyecta
-    Day05Solver *-- FreshnessRule : inyecta
+    Day05Solver *-- InventoryStrategy : inyecta
+    AvailableIngredientsStrategy *-- FreshnessRule : inyecta
 
 %% Dependencias de Dominio
     ObtainDatabase ..> InventoryDatabase : crea
     ObtainDatabase ..> IngredientRange : crea
     InventoryDatabase *-- IngredientRange : contiene
     Day05Solver ..> InventoryDatabase : coordina
+    InventoryStrategy ..> InventoryDatabase : evalúa
     FreshnessRule ..> IngredientRange : evalúa
 ```
 
