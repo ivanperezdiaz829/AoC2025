@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="fix(README): minnor visual hotfix">
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/DatabaseReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/FreshnessRule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/IngredientsRange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/InventoryDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/ObtainDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/a/Day05ASolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/a/RangeOverlapFreshnessRule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day05/a/Day05ASolverTest.java" afterDir="false" />
+    <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="fix(README): Day05 Readme updated">
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/InventoryStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/a/AvailableIngredientsStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/b/Day05BSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/b/MergedRangesStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day05/b/Day05BSolverTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day05/DatabaseReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/DatabaseReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day05/Day05Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/Day05Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day05/FreshnessRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/FreshnessRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day05/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day05/a/Day05ASolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/a/Day05ASolver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +72,7 @@
     "JUnit.Day04ASolverTest.executor": "Run",
     "JUnit.Day04BSolverTest.executor": "Run",
     "JUnit.Day05ASolverTest.executor": "Run",
+    "JUnit.Day05BSolverTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -94,6 +96,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="software.aoc.day05.a" />
       <recent name="software.aoc.day05" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -539,7 +542,23 @@
       <option name="project" value="LOCAL" />
       <updated>1786448411182</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Day05 A finalized">
+      <option name="closed" value="true" />
+      <created>1786450354928</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1786450354928</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fix(README): Day05 Readme updated">
+      <option name="closed" value="true" />
+      <created>1786451006881</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1786451006881</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,7 +596,9 @@
     <MESSAGE value="fix(README): Day04 README.md updated" />
     <MESSAGE value="Day05 README and base structure created" />
     <MESSAGE value="fix(README): minnor visual hotfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(README): minnor visual hotfix" />
+    <MESSAGE value="Day05 A finalized" />
+    <MESSAGE value="fix(README): Day05 Readme updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(README): Day05 Readme updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
