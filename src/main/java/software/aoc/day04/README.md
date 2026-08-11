@@ -62,8 +62,8 @@ classDiagram
         «record»
         -rows: List~String~
         +isRoll(position: Position) boolean
-        +height() : int
-        +width() : int
+        +height() int
+        +width() int
         +removeRolls(rollsToRemove: List<Position>) PaperGrid
         +findAccessibleRolls(rule: AccessRule) List<Position>
     }
