@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="fix(README): minnor visual hotfix">
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day04/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/DatabaseReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/FreshnessRule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/IngredientsRange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/InventoryDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/ObtainDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/a/Day05ASolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/a/RangeOverlapFreshnessRule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day05/a/Day05ASolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day05/Day05Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/Day05Solver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,47 +56,52 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;JUnit.Day01ASolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day01ASolverTest.shouldSolveExampleCorrectly.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day01ASolverTest.shouldSolveRealInput.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day01BSolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day02ASolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day02ASolverTest.shouldSolveExampleCorrectly.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day02BSolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day03ASolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day03BSolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day04ASolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day04BSolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JUnit.Day01ASolverTest.executor": "Run",
+    "JUnit.Day01ASolverTest.shouldSolveExampleCorrectly.executor": "Run",
+    "JUnit.Day01ASolverTest.shouldSolveRealInput.executor": "Run",
+    "JUnit.Day01BSolverTest.executor": "Run",
+    "JUnit.Day02ASolverTest.executor": "Run",
+    "JUnit.Day02ASolverTest.shouldSolveExampleCorrectly.executor": "Run",
+    "JUnit.Day02BSolverTest.executor": "Run",
+    "JUnit.Day03ASolverTest.executor": "Run",
+    "JUnit.Day03BSolverTest.executor": "Run",
+    "JUnit.Day04ASolverTest.executor": "Run",
+    "JUnit.Day04BSolverTest.executor": "Run",
+    "JUnit.Day05ASolverTest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="software.aoc.day05" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ivanp\Desktop\AoC2025\src\test\resources\d01-a" />
       <recent name="C:\Users\ivanp\Desktop\AoC2025\src\test\resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="software.aoc.day05.a" />
       <recent name="software.aoc.day04.a" />
       <recent name="software.aoc.day02.a" />
       <recent name="software.aoc.day02.b" />
@@ -501,7 +515,31 @@
       <option name="project" value="LOCAL" />
       <updated>1786448239814</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fix(README): minnor visual hotfix">
+      <option name="closed" value="true" />
+      <created>1786448292333</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1786448292333</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fix(README): minnor visual hotfix">
+      <option name="closed" value="true" />
+      <created>1786448381107</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1786448381107</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fix(README): minnor visual hotfix">
+      <option name="closed" value="true" />
+      <created>1786448411182</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1786448411182</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
