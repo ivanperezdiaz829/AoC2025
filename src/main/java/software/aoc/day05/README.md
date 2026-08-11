@@ -39,7 +39,7 @@ Tras atravesar el muro, los Elfos necesitan ayuda para determinar qué ingredien
 ```mermaid
 classDiagram
     class SafeSolver {
-        <<interface>>
+        «interface»
         +solve(input: String) long
     }
 
@@ -58,13 +58,13 @@ classDiagram
     }
 
     class InventoryDatabase {
-        <<record>>
+        «record»
         -freshRanges: List~IngredientsRange~
         -availableIds: List~Long~
     }
 
     class IngredientsRange {
-        <<record>>
+        «record»
         -start: long
         -end: long
         +contains(id: long) boolean
@@ -73,8 +73,8 @@ classDiagram
         +length() long
     }
 
-    class DatabaseReader {
-        <<interface>>
+    class DatabaseReader { 
+        «interface»
         +readDatabase(input: String) InventoryDatabase
     }
 
@@ -83,7 +83,7 @@ classDiagram
     }
 
     class InventoryStrategy {
-        <<interface>>
+        «interface»
         +calculate(database: InventoryDatabase) long
     }
 
@@ -97,7 +97,7 @@ classDiagram
     }
 
     class FreshnessRule {
-        <<interface>>
+        «interface»
         +isFresh(id: long, ranges: List~IngredientsRange~) boolean
     }
 
