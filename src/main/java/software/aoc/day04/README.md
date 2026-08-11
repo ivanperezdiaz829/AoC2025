@@ -40,63 +40,63 @@ El objetivo de este reto es optimizar el trabajo de las carretillas elevadoras e
 classDiagram
     class SafeSolver {
         «interface»
-        +solve(input: String) : long
+        +solve(input: String) long
     }
 
     class Day04ASolver {
-        +solve(input: String) : long
+        +solve(input: String) long
     }
 
     class Day04BSolver {
-        +solve(input: String) : long
+        +solve(input: String) long
     }
 
     class Day04Solver {
         -reader: GridReader
         -rule: AccessRule
         -strategy: RemovalStrategy
-        +execute(input: String) : long
+        +execute(input: String) long
     }
 
     class PaperGrid {
         «record»
         -rows: List~String~
-        +isRoll(position: Position) : boolean
+        +isRoll(position: Position) boolean
         +height() : int
         +width() : int
-        +removeRolls(rollsToRemove: List<Position>) : PaperGrid
-        +findAccessibleRolls(rule: AccessRule) : List<Position>
+        +removeRolls(rollsToRemove: List<Position>) PaperGrid
+        +findAccessibleRolls(rule: AccessRule) List<Position>
     }
 
     class GridReader {
         «interface»
-        +readGrid(input: String) : PaperGrid
+        +readGrid(input: String) PaperGrid
     }
 
     class ObtainGrid {
-        +readGrid(input: String) : PaperGrid
+        +readGrid(input: String) PaperGrid
     }
     
     class RemovalStrategy {
         «interface»
-        +run(paperGrid: PaperGrid, rule: AccessRule) : long
+        +run(paperGrid: PaperGrid, rule: AccessRule) long
     }
     
     class CascadingRemovalStrategy {
-        +run(paperGrid: PaperGrid, rule: AccessRule) : long
+        +run(paperGrid: PaperGrid, rule: AccessRule) long
     }
 
     class SinglePassStrategy {
-        +run(paperGrid: PaperGrid, rule: AccessRule) : long
+        +run(paperGrid: PaperGrid, rule: AccessRule) long
     }
 
     class AccessRule {
         «interface»
-        +canAccess(paperGrid: PaperGrid, position: Position) : boolean
+        +canAccess(paperGrid: PaperGrid, position: Position) boolean
     }
 
     class FewerThanFourAdjacentRule {
-        +canAccess(paperGrid: PaperGrid, position: Position) : boolean
+        +canAccess(paperGrid: PaperGrid, position: Position) boolean
     }
     
     class Position {
