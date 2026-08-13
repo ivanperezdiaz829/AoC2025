@@ -3,4 +3,10 @@ package software.aoc.day06;
 import java.util.List;
 
 public record Worksheet(List<MathProblem> problems) {
+
+    public long calculateTotal() {
+        return problems.stream()
+                .mapToLong(MathProblem::evaluate)
+                .sum();
+    }
 }
