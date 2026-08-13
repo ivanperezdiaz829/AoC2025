@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a5521c9-67ec-41b7-85e8-5930550ab238" name="Changes" comment="Day05 B finalized">
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day05/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day06/Day06Solver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day06/EvaluationStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day06/GrandTotalStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day06/MathProblem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day06/Operator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day06/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day06/VerticalWorksheetReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day06/Worksheet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day06/WorksheetReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day06/a/Day06ASolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day06/a/Day06ASolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/software/aoc/day01/a/Day01ASolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day01/a/Day01ASolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/software/aoc/day01/b/Day01BSolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day01/b/Day01BSolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/software/aoc/day02/a/Day02ASolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day02/a/Day02ASolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/software/aoc/day02/b/Day02BSolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day02/b/Day02BSolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/software/aoc/day03/a/Day03ASolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day03/a/Day03ASolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/software/aoc/day03/b/Day03BSolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day03/b/Day03BSolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/software/aoc/day04/a/Day04ASolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day04/a/Day04ASolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/software/aoc/day04/b/Day04BSolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day04/b/Day04BSolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/software/aoc/day05/b/Day05BSolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day05/b/Day05BSolverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +36,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Record" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -63,6 +84,7 @@
     "JUnit.Day04BSolverTest.executor": "Run",
     "JUnit.Day05ASolverTest.executor": "Run",
     "JUnit.Day05BSolverTest.executor": "Run",
+    "JUnit.Day06ASolverTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -71,6 +93,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/ivanpd/Programas_y_Códigos/AoC2025",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.jshint": "true",
     "node.js.detected.package.tslint": "true",
@@ -81,7 +104,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+    "settings.editor.selected.configurable": "configurable.group.editor"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -90,6 +113,7 @@
       <recent name="software.aoc.day05" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test" />
       <recent name="C:\Users\ivanp\Desktop\AoC2025\src\test\resources\d01-a" />
       <recent name="C:\Users\ivanp\Desktop\AoC2025\src\test\resources" />
     </key>
@@ -184,87 +208,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="AoC2025" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="AoC2025" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="AoC2025" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Autodetect">
-      <module name="AoC2025" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <module name="AoC2025" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
