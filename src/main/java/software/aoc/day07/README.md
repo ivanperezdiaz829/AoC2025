@@ -1,35 +1,36 @@
-
 # Día 7: Laboratories
 
 ## Descripción del Problema
 
-Buscando una forma de salir del laboratorio, activamos un teletransportador que resulta estar averiado por culpa de una fuga de taquiones en su colector (manifold). Nos proporcionan un mapa del colector, que es una cuadrícula 2D por donde desciende un rayo de taquiones desde el punto de inicio `S`.
+Buscando una forma de salir del laboratorio, activamos un teletransportador que resulta estar averiado. Nos proporcionan un mapa del colector de taquiones, una cuadrícula por donde descienden los rayos desde el punto `S`.
 
-*   **Parte A**: El rayo siempre avanza hacia abajo. Atraviesa el espacio vacío (`.`) sin inmutarse, pero si choca contra un separador (`^`), el rayo original se detiene y genera **dos nuevos rayos** que continúan desde las posiciones inmediatamente a la izquierda y a la derecha del separador. Si dos rayos convergen en la misma celda de espacio vacío, se fusionan en uno solo. El objetivo es simular la caída de los rayos hasta que salgan del colector y contar el número total de veces que se ha producido una división (cuántos `^` han sido impactados).
-*   **Parte B**: *(Pendiente de ser revelada)*.
+*   **Parte A**: (Física Clásica). El rayo siempre avanza hacia abajo. Atraviesa el espacio vacío (`.`), pero si choca contra un separador (`^`), se divide en dos nuevos rayos (izquierda y derecha). Si dos rayos convergen en el mismo espacio vacío, se fusionan en uno solo. Hay que simular la caída y contar **cuántas veces un rayo impactó un separador**.
+*   **Parte B**: (Física Cuántica). Descubrimos que el colector es cuántico. Solo se envía una partícula, y la interpretación de los Muchos Mundos nos dice que los rayos *no se fusionan*. Cada vez que una partícula choca con un `^`, la línea temporal se divide en dos universos paralelos (uno donde fue a la izquierda, otro a la derecha). Hay que calcular el **número total de líneas temporales** (partículas) resultantes tras atravesar todo el colector.
 
 ---
 
 ## Explicación de las Relaciones y Elementos
 
-*   **Implementación:** `Day07ASolver` implementa la interfaz global `Solver` (o `SafeSolver`), ocultando la complejidad de instanciación del exterior.
-*   **Ensamblaje e Inyección:** El solver inyecta la implementación `GridManifoldReader` en el motor central `Day07Solver`.
-*   **Composición y Uso:** `Day07Solver` delega la lectura en el reader, y posteriormente le pide al propio modelo resultante (`TachyonManifold`) que ejecute su lógica de negocio y devuelva el total de divisiones.
-*   **Nota de diseño:** En línea con la simplificación lograda en el Día 6, se ha evitado crear una clase `SimulationStrategy` o similar. El comportamiento de "contar divisiones simulando la caída" es intrínseco al colector de taquiones. Si la Parte B altera las leyes físicas, evaluaremos extraer la simulación a un patrón *Strategy*; pero por ahora aplicamos *YAGNI*.
+Tal y como predijimos en la Parte A, la Parte B ha alterado las leyes físicas del problema. Esto nos obliga a abandonar nuestra postura inicial *YAGNI* (You Aren't Gonna Need It) y extraer la lógica de simulación a un patrón **Strategy**, aislando el comportamiento clásico del cuántico.
+
+*   **Ensamblaje e Inyección:** `Day07ASolver` y `Day07BSolver` instancian la estrategia física correspondiente (`ClassicalSimulationStrategy` o `QuantumSimulationStrategy`) junto con el lector, y se las inyectan al motor central `Day07Solver`.
+*   **Composición y Uso:** `Day07Solver` lee el `TachyonManifold` y delega en la `SimulationStrategy` inyectada la resolución del problema. El modelo sigue siendo rico al permitir inyectar el motor físico en su método `runSimulation(strategy)`.
 
 ---
 
 ## Arquitectura de Clases y Responsabilidades
 
 - **Los Ensambladores y el Motor Principal:**
-    *   `Solver` **(Interfaz):** Contrato global del repositorio.
-    *   `Day07ASolver` **(Clase):** Ensamblador específico de la Parte A.
-    *   `Day07Solver` **(Clase):** Orquestador agnóstico.
-- **Dominio de Lectura y Modelado (Value Objects):**
-    *   `ManifoldReader` **(Interfaz):** Define el contrato de parseo.
-    *   `GridManifoldReader` **(Clase):** Transforma la entrada de texto plano en la estructura de dominio `TachyonManifold`, localizando de paso la coordenada `S`.
-    *   `TachyonManifold` **(Record):** *Value Object* inmutable que contiene la matriz del colector y el punto de inicio. Posee un Modelo Rico (DDD), exponiendo la operación `countBeamSplits()`. Utiliza internamente un `HashSet` para procesar los rayos fila por fila, resolviendo mágicamente las colisiones y fusiones (ya que un `Set` no permite columnas duplicadas).
-    *   `Position` **(Record):** Encapsula las coordenadas `(row, col)`, eliminando el uso de primitivos sin contexto semántico.
+  *   `Solver` **(Interfaz):** Contrato global del repositorio.
+  *   `Day07ASolver` / `Day07BSolver` **(Clases):** Ensamblan la lectura y la estrategia física (Clásica o Cuántica) correspondientes a cada parte.
+  *   `Day07Solver` **(Clase):** Orquestador agnóstico.
+- **Dominio de Simulación (Patrón Strategy):**
+  *   `SimulationStrategy` **(Interfaz):** Contrato para inyectar las leyes de la física `simulate(manifold)`.
+  *   `ClassicalSimulationStrategy` **(Clase):** Implementa la Parte A. Usa un `Set` para rastrear las posiciones activas, fusionando automáticamente las convergencias por la propiedad de unicidad matemática del conjunto.
+  *   `QuantumSimulationStrategy` **(Clase):** Implementa la Parte B. Usa un `Map<Integer, Long>` para rastrear la *cantidad* de partículas en cada columna, multiplicando las líneas temporales en cada divisor sin fusionarlas.
+- **Dominio de Lectura y Modelado:**
+  *   `ManifoldReader` y `GridManifoldReader`: Parsean la cuadrícula y localizan la `S`.
+  *   `TachyonManifold` **(Record):** *Value Object* inmutable que contiene la matriz del colector. Delega la ejecución a la estrategia mediante `runSimulation()`.
 
 ```mermaid
 classDiagram
@@ -41,9 +42,14 @@ classDiagram
     class Day07ASolver {
         +solve(input: String) long
     }
+    
+    class Day07BSolver {
+        +solve(input: String) long
+    }
 
     class Day07Solver {
         -reader: ManifoldReader
+        -strategy: SimulationStrategy
         +execute(input: String) long
     }
 
@@ -51,13 +57,20 @@ classDiagram
         «record»
         -rows: List~String~
         -startPosition: Position
-        +countBeamSplits() long
+        +runSimulation(strategy: SimulationStrategy) long
     }
 
-    class Position {
-        «record»
-        -row: int
-        -col: int
+    class SimulationStrategy {
+        «interface»
+        +simulate(manifold: TachyonManifold) long
+    }
+    
+    class ClassicalSimulationStrategy {
+        +simulate(manifold: TachyonManifold) long
+    }
+    
+    class QuantumSimulationStrategy {
+        +simulate(manifold: TachyonManifold) long
     }
 
     class ManifoldReader {
@@ -67,20 +80,23 @@ classDiagram
 
     class GridManifoldReader {
         +read(input: String) TachyonManifold
-        -findStart(rows: List~String~) Position
     }
 
 %% Relaciones de Implementación
     Solver <|.. Day07ASolver : implementa
+    Solver <|.. Day07BSolver : implementa
+    SimulationStrategy <|.. ClassicalSimulationStrategy : implementa
+    SimulationStrategy <|.. QuantumSimulationStrategy : implementa
     ManifoldReader <|.. GridManifoldReader : implementa
 
-%% Relaciones de Orquestación e Inyección
+%% Relaciones de Ensamblaje e Inyección
     Day07ASolver ..> Day07Solver : ensambla
+    Day07BSolver ..> Day07Solver : ensambla
     Day07Solver *-- ManifoldReader : inyecta
+    Day07Solver *-- SimulationStrategy : inyecta
 
-%% Dependencias de Dominio
+%% Relaciones de Dominio
     Day07Solver ..> TachyonManifold : coordina
-    TachyonManifold *-- Position : contiene
+    TachyonManifold ..> SimulationStrategy : usa
     GridManifoldReader ..> TachyonManifold : crea
-    GridManifoldReader ..> Position : crea
 ```
