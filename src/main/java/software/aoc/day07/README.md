@@ -34,69 +34,64 @@ Tal y como predijimos en la Parte A, la Parte B ha alterado las leyes físicas d
 
 ```mermaid
 classDiagram
-    class Solver {
-        «interface»
-        +solve(input: String) long
-    }
+  class Solver {
+    «interface»
+    +solve(input: String) long
+  }
 
-    class Day07ASolver {
-        +solve(input: String) long
-    }
-    
-    class Day07BSolver {
-        +solve(input: String) long
-    }
+  class Day07ASolver {
+    +solve(input: String) long
+  }
 
-    class Day07Solver {
-        -reader: ManifoldReader
-        -strategy: SimulationStrategy
-        +execute(input: String) long
-    }
+  class Day07BSolver {
+    +solve(input: String) long
+  }
 
-    class TachyonManifold {
-        «record»
-        -rows: List~String~
-        -startPosition: Position
-        +runSimulation(strategy: SimulationStrategy) long
-    }
+  class Day07Solver {
+    -reader: ManifoldReader
+    -strategy: SimulationStrategy
+    +execute(input: String) long
+  }
 
-    class SimulationStrategy {
-        «interface»
-        +simulate(manifold: TachyonManifold) long
-    }
-    
-    class ClassicalSimulationStrategy {
-        +simulate(manifold: TachyonManifold) long
-    }
-    
-    class QuantumSimulationStrategy {
-        +simulate(manifold: TachyonManifold) long
-    }
+  class TachyonManifold {
+    «record»
+    -rows: List~String~
+    -startPosition: Position
+    +runSimulation(strategy: SimulationStrategy) long
+  }
 
-    class ManifoldReader {
-        «interface»
-        +read(input: String) TachyonManifold
-    }
+  class SimulationStrategy {
+    «interface»
+    +simulate(manifold: TachyonManifold) long
+  }
 
-    class GridManifoldReader {
-        +read(input: String) TachyonManifold
-    }
+  class ClassicalSimulationStrategy {
+    +simulate(manifold: TachyonManifold) long
+  }
+
+  class QuantumSimulationStrategy {
+    +simulate(manifold: TachyonManifold) long
+  }
+
+  class ManifoldReader {
+    +read(input: String) TachyonManifold
+    -findStart(rows: List~String~) Position
+  }
 
 %% Relaciones de Implementación
-    Solver <|.. Day07ASolver : implementa
-    Solver <|.. Day07BSolver : implementa
-    SimulationStrategy <|.. ClassicalSimulationStrategy : implementa
-    SimulationStrategy <|.. QuantumSimulationStrategy : implementa
-    ManifoldReader <|.. GridManifoldReader : implementa
+  Solver <|.. Day07ASolver : implementa
+  Solver <|.. Day07BSolver : implementa
+  SimulationStrategy <|.. ClassicalSimulationStrategy : implementa
+  SimulationStrategy <|.. QuantumSimulationStrategy : implementa
 
 %% Relaciones de Ensamblaje e Inyección
-    Day07ASolver ..> Day07Solver : ensambla
-    Day07BSolver ..> Day07Solver : ensambla
-    Day07Solver *-- ManifoldReader : inyecta
-    Day07Solver *-- SimulationStrategy : inyecta
+  Day07ASolver ..> Day07Solver : ensambla
+  Day07BSolver ..> Day07Solver : ensambla
+  Day07Solver *-- ManifoldReader : inyecta
+  Day07Solver *-- SimulationStrategy : inyecta
 
 %% Relaciones de Dominio
-    Day07Solver ..> TachyonManifold : coordina
-    TachyonManifold ..> SimulationStrategy : usa
-    GridManifoldReader ..> TachyonManifold : crea
+  Day07Solver ..> TachyonManifold : coordina
+  TachyonManifold ..> SimulationStrategy : usa
+  ManifoldReader ..> TachyonManifold : crea
 ```
