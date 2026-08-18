@@ -37,7 +37,7 @@ Tras caer accidentalmente por un conducto de basura, quedamos atrapados en un co
 ```mermaid
 classDiagram
   class SafeSolver {
-    <<interface>>
+    «interface»
     +solve(input: String) long
   }
 
@@ -55,20 +55,20 @@ classDiagram
   }
 
   class Worksheet {
-    <<record>>
+    «record»
     -problems: List~MathProblem~
     +calculateGrandTotal() long
   }
 
   class MathProblem {
-    <<record>>
+    «record»
     -operands: List~Long~
     -operator: Operator
     +evaluate() long
   }
 
   class Operator {
-    <<enumeration>>
+    «enumeration»
     ADD
     MULTIPLY
     +apply(operands: List~Long~) long
@@ -76,12 +76,12 @@ classDiagram
   }
 
   class WorksheetReader {
-    <<interface>>
+    «interface»
     +read(input: String) Worksheet
   }
 
   class AbstractWorksheetReader {
-    <<abstract>>
+    «abstract»
     +read(input: String) Worksheet
     -isBlankColumn(lines: List~String~, col: int) boolean
     #parseProblem(lines: List~String~, startCol: int, endCol: int)* MathProblem
