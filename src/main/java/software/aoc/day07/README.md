@@ -60,6 +60,12 @@ classDiagram
     +runSimulation(strategy: SimulationStrategy) long
   }
 
+  class Position {
+    «record»
+    -row: int
+    -col: int
+  }
+
   class SimulationStrategy {
     «interface»
     +simulate(manifold: TachyonManifold) long
@@ -93,5 +99,7 @@ classDiagram
 %% Relaciones de Dominio
   Day07Solver ..> TachyonManifold : coordina
   TachyonManifold ..> SimulationStrategy : usa
+  TachyonManifold *-- Position : contiene
   ManifoldReader ..> TachyonManifold : crea
+  ManifoldReader ..> Position : crea
 ```
