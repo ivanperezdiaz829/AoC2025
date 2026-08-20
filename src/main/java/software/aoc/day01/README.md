@@ -36,7 +36,7 @@ El objetivo de este reto es descifrar la combinación de seguridad de la entrada
 
 ```mermaid
 classDiagram
-  class SafeSolver {
+  class Solver {
     «interface»
     +solve(input: String) long
   }
@@ -84,8 +84,8 @@ classDiagram
   }
 
 %% Relaciones de Implementación
-  SafeSolver <|.. Day02ASolver : implementa
-  SafeSolver <|.. Day02BSolver : implementa
+  Solver <|.. Day02ASolver : implementa
+  Solver <|.. Day02BSolver : implementa
   RangeReader <|.. ObtainRanges : implementa
   IdValidator <|.. RepeatedSequenceValidator : implementa
   IdValidator <|.. FutureRuleValidator : implementa

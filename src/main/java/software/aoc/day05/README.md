@@ -38,7 +38,7 @@ Tras atravesar el muro, los Elfos necesitan ayuda para determinar qué ingredien
 
 ```mermaid
 classDiagram
-    class SafeSolver {
+    class Solver {
         «interface»
         +solve(input: String) long
     }
@@ -106,8 +106,8 @@ classDiagram
     }
 
 %% Relaciones de Implementación
-    SafeSolver <|.. Day05ASolver : implementa
-    SafeSolver <|.. Day05BSolver : implementa
+    Solver <|.. Day05ASolver : implementa
+    Solver <|.. Day05BSolver : implementa
     DatabaseReader <|.. ObtainDatabase : implementa
     InventoryStrategy <|.. AvailableIngredientsStrategy : implementa
     InventoryStrategy <|.. MergedRangesStrategy : implementa

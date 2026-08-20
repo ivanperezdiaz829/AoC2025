@@ -11,7 +11,7 @@ Tras caer accidentalmente por un conducto de basura, quedamos atrapados en un co
 
 ## Explicación de las Relaciones y Elementos
 
-*   **Implementación:** `Day06ASolver` y `Day06BSolver` implementan la interfaz global `SafeSolver`, exponiendo únicamente el método público `solve` hacia el exterior.
+*   **Implementación:** `Day06ASolver` y `Day06BSolver` implementan la interfaz global `Solver`, exponiendo únicamente el método público `solve` hacia el exterior.
 *   **Ensamblaje e Inyección:** Cada solver específico instancia el `WorksheetReader` concreto correspondiente a su forma de lectura (`VerticalWorksheetReader` para la Parte A, `CephalopodWorksheetReader` para la Parte B) y lo inyecta en el motor principal `Day06Solver`.
 *   **Composición y Uso:** `Day06Solver` delega por completo en `WorksheetReader` la transformación del texto en un `Worksheet`, y el propio `Worksheet` es responsable de calcularse a sí mismo el gran total — el orquestador no conoce ni las reglas de parseo ni el algoritmo de evaluación.
 *   **Nota de diseño:** a diferencia de días anteriores, aquí **no existe una estrategia de evaluación independiente**. La operación de "sumar los resultados de cada problema" es idéntica entre la Parte A y la Parte B; lo único que varía entre ambas es *cómo se interpreta el texto de la hoja*. Por eso toda la variación del ejercicio se concentra en `WorksheetReader`, evitando introducir una abstracción adicional que no aportaría ningún punto de extensión real.
@@ -21,9 +21,9 @@ Tras caer accidentalmente por un conducto de basura, quedamos atrapados en un co
 ## Arquitectura de Clases y Responsabilidades
 
 - **Los Ensambladores y el Motor Principal:**
-  *   `SafeSolver` **(Interfaz):** Contrato global del repositorio para la ejecución de cualquier día.
-  *   `Day06ASolver` **(Clase):** Implementa `SafeSolver`. Configura e inyecta un `VerticalWorksheetReader` en el motor central.
-  *   `Day06BSolver` **(Clase):** Implementa `SafeSolver`. Configura e inyecta un `CephalopodWorksheetReader` en el mismo motor, reutilizando toda la lógica de evaluación sin cambio alguno.
+  *   `Solver` **(Interfaz):** Contrato global del repositorio para la ejecución de cualquier día.
+  *   `Day06ASolver` **(Clase):** Implementa `Solver`. Configura e inyecta un `VerticalWorksheetReader` en el motor central.
+  *   `Day06BSolver` **(Clase):** Implementa `Solver`. Configura e inyecta un `CephalopodWorksheetReader` en el mismo motor, reutilizando toda la lógica de evaluación sin cambio alguno.
   *   `Day06Solver` **(Clase):** Orquestador agnóstico. Lee el input a través del `WorksheetReader` inyectado y delega en el `Worksheet` resultante el cálculo del gran total. No contiene lógica de negocio.
 - **Dominio de Lectura y Modelado (Value Objects):**
   *   `WorksheetReader` **(Interfaz):** Contrato para el parseo de la entrada.
@@ -36,7 +36,7 @@ Tras caer accidentalmente por un conducto de basura, quedamos atrapados en un co
 
 ```mermaid
 classDiagram
-  class SafeSolver {
+  class Solver {
     «interface»
     +solve(input: String) long
   }
@@ -96,8 +96,8 @@ classDiagram
   }
 
 %% Relaciones de Implementación y Herencia
-  SafeSolver <|.. Day06ASolver : implementa
-  SafeSolver <|.. Day06BSolver : implementa
+  Solver <|.. Day06ASolver : implementa
+  Solver <|.. Day06BSolver : implementa
   WorksheetReader <|.. AbstractWorksheetReader : implementa
   AbstractWorksheetReader <|-- VerticalWorksheetReader : hereda
   AbstractWorksheetReader <|-- CephalopodWorksheetReader : hereda

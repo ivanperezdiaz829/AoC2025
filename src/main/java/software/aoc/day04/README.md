@@ -38,7 +38,7 @@ El objetivo de este reto es optimizar el trabajo de las carretillas elevadoras e
 
 ```mermaid
 classDiagram
-    class SafeSolver {
+    class Solver {
         «interface»
         +solve(input: String) long
     }
@@ -106,8 +106,8 @@ classDiagram
     }
 
 %% Relaciones de Implementación
-    SafeSolver <|.. Day04ASolver : implementa
-    SafeSolver <|.. Day04BSolver : implementa
+    Solver <|.. Day04ASolver : implementa
+    Solver <|.. Day04BSolver : implementa
     GridReader <|.. ObtainGrid : implementa
     AccessRule <|.. FewerThanFourAdjacentRule : implementa
     RemovalStrategy <|.. SinglePassStrategy : implementa
