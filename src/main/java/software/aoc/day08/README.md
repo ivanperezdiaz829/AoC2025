@@ -57,6 +57,11 @@ classDiagram
     +execute(input: String) long
   }
 
+  class PlaygroundReader {
+    «record»
+    +read(input: String) Playground
+  }
+
   class Playground {
     «record»
     -boxes: List~JunctionBox~
