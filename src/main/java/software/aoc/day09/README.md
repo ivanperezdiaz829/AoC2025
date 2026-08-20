@@ -32,60 +32,74 @@ Tras llegar a la base del Polo Norte, nos encontramos en la sala de cine. Los el
     *   `Position2D` **(Record):** Encapsula `(x, y)` y la lógica espacial (`rectangleAreaWith`), evitando la obsesión por los primitivos y asegurando que las coordenadas utilicen `long` para prevenir desbordamientos de área.
 
 ```mermaid
+```mermaid
 classDiagram
-  class SafeSolver {
-    «interface»
-    +solve(input: String) long
-  }
+class SafeSolver {
+«interface»
++solve(input: String) long
+}
 
-  class Day09ASolver {
-    +solve(input: String) long
-  }
+class Day09ASolver {
++solve(input: String) long
+}
 
-  class Day09Solver {
-    -reader: TheaterFloorReader
-    -strategy: RectangleStrategy
-    +execute(input: String) long
-  }
+class Day09BSolver {
++solve(input: String) long
+}
 
-  class TheaterFloor {
-    «record»
-    -redTiles: List~Position2D~
-    +calculateLargestRectangle(strategy: RectangleStrategy) long
-  }
+class Day09Solver {
+-reader: TheaterFloorReader
+-strategy: RectangleStrategy
++execute(input: String) long
+}
 
-  class Position2D {
-    «record»
-    -x: long
-    -y: long
-    +rectangleAreaWith(other: Position2D) long
-  }
+class TheaterFloor {
+«record»
+-redTiles: List~Position2D~
++calculateLargestRectangle(strategy: RectangleStrategy) long
+}
 
-  class RectangleStrategy {
-    «interface»
-    +findLargestArea(tiles: List~Position2D~) long
-  }
+class Position2D {
+«record»
+-x: long
+-y: long
++rectangleAreaWith(other: Position2D) long
+}
 
-  class TwoCornerRectangleStrategy {
-    +findLargestArea(tiles: List~Position2D~) long
-  }
+class RectangleStrategy {
+«interface»
++findLargestArea(tiles: List~Position2D~) long
+}
 
-  class TheaterFloorReader {
-    +read(input: String) TheaterFloor
-  }
+class TwoCornerRectangleStrategy {
++findLargestArea(tiles: List~Position2D~) long
+}
+
+class InteriorRectangleStrategy {
++findLargestArea(tiles: List~Position2D~) long
+-isValid(minX, maxX, minY, maxY, poly) boolean
+-isPointInside(qx, qy, poly) boolean
+}
+
+class TheaterFloorReader {
++read(input: String) TheaterFloor
+}
 
 %% Relaciones de Implementación
-  SafeSolver <|.. Day09ASolver : implementa
-  RectangleStrategy <|.. TwoCornerRectangleStrategy : implementa
+SafeSolver <|.. Day09ASolver : implementa
+SafeSolver <|.. Day09BSolver : implementa
+RectangleStrategy <|.. TwoCornerRectangleStrategy : implementa
+RectangleStrategy <|.. InteriorRectangleStrategy : implementa
 
 %% Relaciones de Ensamblaje e Inyección
-  Day09ASolver ..> Day09Solver : ensambla
-  Day09Solver *-- TheaterFloorReader : inyecta
-  Day09Solver *-- RectangleStrategy : inyecta
+Day09ASolver ..> Day09Solver : ensambla
+Day09BSolver ..> Day09Solver : ensambla
+Day09Solver *-- TheaterFloorReader : inyecta
+Day09Solver *-- RectangleStrategy : inyecta
 
 %% Relaciones de Dominio
-  Day09Solver ..> TheaterFloor : coordina
-  TheaterFloorReader ..> TheaterFloor : crea
-  TheaterFloor *-- Position2D : contiene
-  TheaterFloor ..> RectangleStrategy : usa
+Day09Solver ..> TheaterFloor : coordina
+TheaterFloorReader ..> TheaterFloor : crea
+TheaterFloor *-- Position2D : contiene
+TheaterFloor ..> RectangleStrategy : usa
 ```
