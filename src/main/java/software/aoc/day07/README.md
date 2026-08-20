@@ -37,7 +37,7 @@ Tras salir del compactador de basura, llegamos a un ala de investigación del Po
 ```mermaid
 classDiagram
   class Solver {
-    <<interface>>
+    «interface»
     +solve(input: String) long
   }
 
@@ -56,20 +56,20 @@ classDiagram
   }
 
   class TachyonManifold {
-    <<record>>
+    «record»
     -rows: List~String~
     -startPosition: Position
     +runSimulation(strategy: SimulationStrategy) long
   }
 
   class Position {
-    <<record>>
+    «record»
     -row: int
     -col: int
   }
 
   class SimulationStrategy {
-    <<interface>>
+    «interface»
     +simulate(manifold: TachyonManifold) long
   }
 
