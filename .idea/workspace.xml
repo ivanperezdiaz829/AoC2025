@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="fix(README): Minnor visual problems with interfaces solved">
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/b/CompleteCircuitConnectionStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/b/Day08BSolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day08/b/Day08BSolverTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/BoxPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/BoxPair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/ConnectionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/ConnectionStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/Day08Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/Day08Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/FixedLimitConnectionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/a/FixedLimitConnectionStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/Playground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/Playground.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/UnionFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/UnionFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/a/Day08ASolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/a/Day08ASolver.java" afterDir="false" />
-    </list>
+    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="Minnor fix of the Day08 README" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -190,7 +178,31 @@
       <option name="project" value="LOCAL" />
       <updated>1787246112574</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Day08 completed">
+      <option name="closed" value="true" />
+      <created>1787248074847</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1787248074847</updated>
+    </task>
+    <task id="LOCAL-00013" summary="First version of the README from the Day09">
+      <option name="closed" value="true" />
+      <created>1787248193231</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1787248193231</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Minnor fix of the Day08 README">
+      <option name="closed" value="true" />
+      <created>1787248374844</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1787248374844</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +230,10 @@
     <MESSAGE value="Day08 A completed" />
     <MESSAGE value="Day08 README changed" />
     <MESSAGE value="fix(README): Minnor visual problems with interfaces solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(README): Minnor visual problems with interfaces solved" />
+    <MESSAGE value="Day08 completed" />
+    <MESSAGE value="First version of the README from the Day09" />
+    <MESSAGE value="Minnor fix of the Day08 README" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minnor fix of the Day08 README" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

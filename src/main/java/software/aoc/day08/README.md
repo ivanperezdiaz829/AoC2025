@@ -58,7 +58,6 @@ classDiagram
   }
 
   class PlaygroundReader {
-    «record»
     +read(input: String) Playground
   }
 
