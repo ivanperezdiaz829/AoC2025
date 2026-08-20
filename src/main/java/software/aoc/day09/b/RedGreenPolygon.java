@@ -1,4 +1,6 @@
-package software.aoc.day09;
+package software.aoc.day09.b;
+
+import software.aoc.day09.Position2D;
 
 import java.util.List;
 
