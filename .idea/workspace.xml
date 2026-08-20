@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="Minnor README fix">
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/SimulationStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/a/ClassicalSimulationStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/b/Day07BSolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/b/QuantumSimulationStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day07/b/Day07BSolverTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day01/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day01/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day02/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day02/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day03/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day03/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day04/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day05/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day06/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day06/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day07/Day07Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/Day07Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day07/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day07/TachyonManifold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/TachyonManifold.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day07/a/Day07ASolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/a/Day07ASolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/software/aoc/day07/Day07ASolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day07/a/Day07ASolverTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="fix(README): All mentions to SafeSolver changed by Solver" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,7 +126,23 @@
       <option name="project" value="LOCAL" />
       <updated>1787071478861</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Day07 finalized">
+      <option name="closed" value="true" />
+      <created>1787220900936</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1787220900936</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix(README): All mentions to SafeSolver changed by Solver">
+      <option name="closed" value="true" />
+      <created>1787220934081</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1787220934081</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,7 +164,9 @@
     <MESSAGE value="Day07 README.md first version" />
     <MESSAGE value="Day07 part A solved" />
     <MESSAGE value="Minnor README fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minnor README fix" />
+    <MESSAGE value="Day07 finalized" />
+    <MESSAGE value="fix(README): All mentions to SafeSolver changed by Solver" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(README): All mentions to SafeSolver changed by Solver" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
