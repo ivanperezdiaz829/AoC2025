@@ -11,6 +11,6 @@ public class Day08Solver {
 
     public long execute(String input) {
         Playground playground = reader.read(input);
-        return playground.calculateCircuitScore(strategy);
+        return playground.applyConnectionStrategy(strategy);
     }
 }

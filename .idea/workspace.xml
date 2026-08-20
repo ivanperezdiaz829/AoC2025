@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="Day08 README changed">
+    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="fix(README): Minnor visual problems with interfaces solved">
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/b/CompleteCircuitConnectionStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/b/Day08BSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day08/b/Day08BSolverTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day07/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/BoxPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/BoxPair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/ConnectionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/ConnectionStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/Day08Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/Day08Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/FixedLimitConnectionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/a/FixedLimitConnectionStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/Playground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/Playground.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/UnionFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/UnionFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day08/a/Day08ASolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day08/a/Day08ASolver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +60,7 @@
     "JUnit.Day07ASolverTest.executor": "Run",
     "JUnit.Day07BSolverTest.executor": "Run",
     "JUnit.Day08ASolverTest.executor": "Run",
+    "JUnit.Day08BSolverTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
@@ -72,6 +81,7 @@
       <recent name="software.aoc.day07" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="software.aoc.day08.a" />
       <recent name="software.aoc.day07.b" />
       <recent name="software.aoc.day07.a" />
     </key>
@@ -172,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787245272515</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix(README): Minnor visual problems with interfaces solved">
+      <option name="closed" value="true" />
+      <created>1787246112574</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1787246112574</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +217,8 @@
     <MESSAGE value="First readme version for day08" />
     <MESSAGE value="Day08 A completed" />
     <MESSAGE value="Day08 README changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day08 README changed" />
+    <MESSAGE value="fix(README): Minnor visual problems with interfaces solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(README): Minnor visual problems with interfaces solved" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -16,10 +16,10 @@ public class UnionFinder {
         }
     }
 
-    public void union(int p, int q) {
+    public boolean union(int p, int q) {
         int rootP = find(p);
         int rootQ = find(q);
-        if (rootP == rootQ) { return; }
+        if (rootP == rootQ) { return false; }
 
         if (size[rootP] < size[rootQ]) {
             parent[rootP] = rootQ;
@@ -28,6 +28,7 @@ public class UnionFinder {
             parent[rootQ] = rootP;
             size[rootP] += size[rootQ];
         }
+        return true;
     }
 
     private int find(int p) {
