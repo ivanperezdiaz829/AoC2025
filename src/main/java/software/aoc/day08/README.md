@@ -45,6 +45,10 @@ classDiagram
     +solve(input: String) long
   }
 
+  class Day08BSolver {
+    +solve(input: String) long
+  }
+
   class Day08Solver {
     -reader: PlaygroundReader
     -strategy: ConnectionStrategy
@@ -54,7 +58,7 @@ classDiagram
   class Playground {
     «record»
     -boxes: List~JunctionBox~
-    +calculateCircuitScore(strategy: ConnectionStrategy) long
+    +executeStrategy(strategy: ConnectionStrategy) long
   }
 
   class Position3D {
@@ -62,59 +66,51 @@ classDiagram
     -x: long
     -y: long
     -z: long
-    +distanceSquared(other: Position3D) long
+    +distance(other: Position3D) long
   }
 
-  class JunctionBox {
-    «record»
-    -id: int
-    -position: Position3D
-  }
-  
   class BoxPair {
     «record»
     -box1: JunctionBox
     -box2: JunctionBox
-    -distanceSquared: long
+    -distance: long
   }
 
   class ConnectionStrategy {
     «interface»
-    +applyConnections(totalBoxes: int, sortedPairs: List~BoxPair~) List~Integer~
+    +applyConnections(totalBoxes: int, sortedPairs: List~BoxPair~) long
   }
 
   class FixedLimitConnectionStrategy {
     -limit: int
-    +applyConnections(totalBoxes: int, sortedPairs: List~BoxPair~) List~Integer~
+    +applyConnections(totalBoxes: int, sortedPairs: List~BoxPair~) long
   }
-  
+
+  class CompleteCircuitConnectionStrategy {
+    +applyConnections(totalBoxes: int, sortedPairs: List~BoxPair~) long
+  }
+
   class UnionFind {
     -parent: int[]
     -size: int[]
-    +union(p: int, q: int) void
+    +union(p: int, q: int) boolean
     +getComponentSizes() List~Integer~
   }
 
-  class PlaygroundReader {
-    +read(input: String) Playground
-  }
-
 %% Relaciones de Implementación
-  Solver <|.. Day08ASolver : implementa
+  SafeSolver <|.. Day08ASolver : implementa
+  SafeSolver <|.. Day08BSolver : implementa
   ConnectionStrategy <|.. FixedLimitConnectionStrategy : implementa
-  BoxPair ..|> Comparable : implementa
+  ConnectionStrategy <|.. CompleteCircuitConnectionStrategy : implementa
 
 %% Relaciones de Ensamblaje e Inyección
   Day08ASolver ..> Day08Solver : ensambla
+  Day08BSolver ..> Day08Solver : ensambla
   Day08Solver *-- PlaygroundReader : inyecta
   Day08Solver *-- ConnectionStrategy : inyecta
 
 %% Relaciones de Dominio
   Day08Solver ..> Playground : coordina
   Playground ..> ConnectionStrategy : usa
-  Playground *-- JunctionBox : contiene
-  Playground ..> BoxPair : genera
-  JunctionBox *-- Position3D : contiene
-  FixedLimitConnectionStrategy *-- UnionFind : utiliza
-  PlaygroundReader ..> Playground : crea
+  Playground *-- BoxPair : genera
 ```
