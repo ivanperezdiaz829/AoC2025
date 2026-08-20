@@ -32,7 +32,6 @@ Tras llegar a la base del Polo Norte, nos encontramos en la sala de cine. Los el
     *   `Position2D` **(Record):** Encapsula `(x, y)` y la lógica espacial (`rectangleAreaWith`), evitando la obsesión por los primitivos y asegurando que las coordenadas utilicen `long` para prevenir desbordamientos de área.
 
 ```mermaid
-```mermaid
 classDiagram
 class SafeSolver {
 «interface»
