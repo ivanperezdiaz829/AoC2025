@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="Day07 part A solved" />
+    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="Minnor README fix">
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/SimulationStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/a/ClassicalSimulationStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/b/Day07BSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/b/QuantumSimulationStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day07/b/Day07BSolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day01/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day01/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day02/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day02/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day03/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day03/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day04/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day04/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day05/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day05/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day06/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day06/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day07/Day07Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/Day07Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day07/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day07/TachyonManifold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/TachyonManifold.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day07/a/Day07ASolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/a/Day07ASolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/software/aoc/day07/Day07ASolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day07/a/Day07ASolverTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Record" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -22,47 +40,52 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ivanperezdiaz829"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ivanperezdiaz829&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ivanperezdiaz829/AoC2025",
-    "accountId": "c253c44a-8a8a-4e28-977f-67539c121706"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ivanperezdiaz829/AoC2025&quot;,
+    &quot;accountId&quot;: &quot;c253c44a-8a8a-4e28-977f-67539c121706&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="3I5zH9bNkXWCpzpr8SSvI0BjhHs" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.Day06ASolverTest.executor": "Run",
-    "JUnit.Day06BSolverTest.executor": "Run",
-    "JUnit.Day07ASolverTest.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.Day06ASolverTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Day06BSolverTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Day07ASolverTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Day07BSolverTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="software.aoc.day07" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="software.aoc.day07.b" />
+      <recent name="software.aoc.day07.a" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -105,17 +128,45 @@
       <option name="project" value="LOCAL" />
       <updated>1787070922677</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Minnor README fix">
+      <option name="closed" value="true" />
+      <created>1787071256892</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1787071256892</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Minnor README fix">
+      <option name="closed" value="true" />
+      <created>1787071478861</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1787071478861</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Day06 README minnor fixes" />
     <MESSAGE value="Day07 README.md first version" />
     <MESSAGE value="Day07 part A solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day07 part A solved" />
+    <MESSAGE value="Minnor README fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minnor README fix" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
