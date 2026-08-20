@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="Minnor fix of the Day08 README">
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day09/Day09Solver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day09/Position2D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day09/RectangleStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day09/TheaterFloor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day09/TheaterFloorReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day09/TwoCornerRectangleStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day09/a/Day09ASolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day09/a/Day09ASolverTest.java" afterDir="false" />
+    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="Readme updated">
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day09/InteriorRectangleStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day09/b/Day09BSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day09/b/Day09BSolverTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day09/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day09/README.md" afterDir="false" />
     </list>
@@ -61,6 +56,7 @@
     "JUnit.Day08ASolverTest.executor": "Run",
     "JUnit.Day08BSolverTest.executor": "Run",
     "JUnit.Day09ASolverTest.executor": "Run",
+    "JUnit.Day09BSolverTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
@@ -223,7 +219,31 @@
       <option name="project" value="LOCAL" />
       <updated>1787248404318</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Day09 A completed">
+      <option name="closed" value="true" />
+      <created>1787260112640</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1787260112640</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Readme updated">
+      <option name="closed" value="true" />
+      <created>1787260122442</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1787260122442</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Readme updated">
+      <option name="closed" value="true" />
+      <created>1787260138536</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1787260138536</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +274,9 @@
     <MESSAGE value="Day08 completed" />
     <MESSAGE value="First version of the README from the Day09" />
     <MESSAGE value="Minnor fix of the Day08 README" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minnor fix of the Day08 README" />
+    <MESSAGE value="Day09 A completed" />
+    <MESSAGE value="Readme updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Readme updated" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
