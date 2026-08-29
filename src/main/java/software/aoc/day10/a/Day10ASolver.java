@@ -1,7 +1,6 @@
 package software.aoc.day10.a;
 
 import software.aoc.Solver;
-import software.aoc.day10.BFSButtonPressStrategy;
 import software.aoc.day10.ButtonPressStrategy;
 import software.aoc.day10.Day10Solver;
 import software.aoc.day10.MachineReader;

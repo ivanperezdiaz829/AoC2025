@@ -1,4 +1,8 @@
-package software.aoc.day10;
+package software.aoc.day10.a;
+
+import software.aoc.day10.Button;
+import software.aoc.day10.ButtonPressStrategy;
+import software.aoc.day10.Machine;
 
 import java.util.LinkedList;
 import java.util.Queue;

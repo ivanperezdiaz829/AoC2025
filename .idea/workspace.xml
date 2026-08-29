@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="Day10 First Version">
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/BFSButtonPressStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/Button.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/ButtonPressStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/Day10Solver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/Factory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/Machine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/MachineReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/a/Day10ASolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day10/a/Day10ASolverTest.java" afterDir="false" />
+    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="Day10 A version completed">
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/b/Day10BSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/b/LinearSystemButtonPressStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/b/Rational.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day10/b/Day10BSolverTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day10/BFSButtonPressStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/a/BFSButtonPressStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day10/Machine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/Machine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day10/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day10/a/Day10ASolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day10/a/Day10ASolver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +61,8 @@
     "JUnit.Day08BSolverTest.executor": "Run",
     "JUnit.Day09ASolverTest.executor": "Run",
     "JUnit.Day09BSolverTest.executor": "Run",
+    "JUnit.Day10ASolverTest.executor": "Run",
+    "JUnit.Day10BSolverTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
@@ -87,11 +88,11 @@
       <recent name="software.aoc.day07" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="software.aoc.day10.a" />
+      <recent name="software.aoc.day10.b" />
       <recent name="software.aoc.day09.a" />
       <recent name="software.aoc.day09.b" />
       <recent name="software.aoc.day08.a" />
-      <recent name="software.aoc.day07.b" />
-      <recent name="software.aoc.day07.a" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -294,7 +295,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788009156339</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Day10 A version completed">
+      <option name="closed" value="true" />
+      <created>1788016963827</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1788016963827</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +339,8 @@
     <MESSAGE value="Day09 completed" />
     <MESSAGE value="Day09 refactorized" />
     <MESSAGE value="Day10 First Version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day10 First Version" />
+    <MESSAGE value="Day10 A version completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Day10 A version completed" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
