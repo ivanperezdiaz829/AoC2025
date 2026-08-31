@@ -2,7 +2,6 @@ package software.aoc.day10.b;
 
 import java.math.BigInteger;
 
-/** Fracción exacta reducida, usada para evitar errores de precisión en la eliminación gaussiana. */
 final class Rational {
     static final Rational ZERO = new Rational(BigInteger.ZERO, BigInteger.ONE);
     static final Rational ONE = new Rational(BigInteger.ONE, BigInteger.ONE);

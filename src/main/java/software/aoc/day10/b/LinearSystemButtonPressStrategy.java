@@ -8,24 +8,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Resuelve la Parte B modelando cada máquina como un sistema lineal A·x = target,
- * donde cada columna de A es el vector de contadores que afecta un botón.
- *
- * - Si el sistema es determinado (rango == nº de botones), la solución es única
- *   y se obtiene en O(m^2 * n) sin ninguna búsqueda.
- * - Si sobran variables libres (rango < nº de botones), se hace una búsqueda
- *   acotada solo sobre esas variables libres, evaluando el resto del sistema
- *   de forma directa (no combinatoria) en cada hoja.
- */
 public class LinearSystemButtonPressStrategy implements ButtonPressStrategy {
 
     @Override
     public long findMinimumPresses(Machine machine) {
         List<Button> buttons = machine.buttons();
         int[] target = machine.joltages().stream().mapToInt(Integer::intValue).toArray();
-        int m = target.length; // nº de contadores (ecuaciones)
-        int n = buttons.size(); // nº de botones (variables)
+        int m = target.length;
+        int n = buttons.size();
 
         Rational[][] a = new Rational[m][n];
         Rational[] b = new Rational[m];
@@ -40,7 +30,6 @@ public class LinearSystemButtonPressStrategy implements ButtonPressStrategy {
         Arrays.fill(pivotColOfRow, -1);
         int row = 0;
 
-        // Eliminación gaussiana hasta forma escalonada reducida (RREF)
         for (int col = 0; col < n && row < m; col++) {
             int sel = -1;
             for (int r = row; r < m; r++) {
@@ -64,13 +53,11 @@ public class LinearSystemButtonPressStrategy implements ButtonPressStrategy {
                 }
                 b[r] = b[r].sub(factor.mul(b[row]));
             }
-
             pivotColOfRow[row] = col;
             row++;
         }
         int rank = row;
 
-        // Filas sobrantes deben ser 0 = 0; si no, el sistema es inconsistente
         for (int r = rank; r < m; r++) {
             if (!b[r].isZero()) {
                 throw new IllegalStateException("Sistema sin solución para la máquina");
@@ -84,7 +71,6 @@ public class LinearSystemButtonPressStrategy implements ButtonPressStrategy {
         for (int c = 0; c < n; c++) if (!isPivotCol[c]) freeCols.add(c);
 
         if (freeCols.isEmpty()) {
-            // Sistema determinado: solución única, sin búsqueda
             long total = 0;
             for (int r = 0; r < rank; r++) {
                 Rational value = b[r];
@@ -95,8 +81,6 @@ public class LinearSystemButtonPressStrategy implements ButtonPressStrategy {
             }
             return total;
         }
-
-        // Sistema subdeterminado: búsqueda acotada solo sobre las variables libres
         return solveUnderdetermined(a, b, rank, freeCols, buttons, target);
     }
 
@@ -108,18 +92,12 @@ public class LinearSystemButtonPressStrategy implements ButtonPressStrategy {
         for (int idx = 0; idx < f; idx++) {
             int col = freeCols.get(idx);
             Button btn = buttons.get(col);
-
-            // Cota física: ningún botón puede pulsarse más veces que el objetivo
-            // de cualquier contador que afecte, ya que cada pulsación solo suma.
-            // Se calcula sobre la matriz ORIGINAL (toggleMask), no sobre la RREF,
-            // para no heredar coeficientes negativos introducidos por la eliminación.
             long bound = Long.MAX_VALUE;
             for (int i = 0; i < target.length; i++) {
                 if ((btn.toggleMask() & (1 << i)) != 0) {
                     bound = Math.min(bound, target[i]);
                 }
             }
-            // Si el botón no afecta a ningún contador, no tiene sentido pulsarlo
             upperBounds[idx] = (bound == Long.MAX_VALUE) ? 0 : bound;
         }
 
