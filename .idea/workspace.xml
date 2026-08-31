@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="Day11 B README first version">
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day11/PathQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day11/b/Day11BSolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day11/b/MandatoryNodesPathCountingStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day11/b/Day11BSolverTest.java" afterDir="false" />
+    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="Day11 finalized">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day11/Day11Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day11/Day11Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day11/MemoizedDFSPathCountingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day11/a/MemoizedDFSPathCountingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day11/PathCountingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day11/PathCountingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day11/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day11/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day11/ReactorNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day11/ReactorNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day11/a/Day11ASolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day11/a/Day11ASolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day11/b/MandatoryNodesPathCountingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day11/b/MandatoryNodesPathCountingStrategy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,7 +339,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788179434103</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Day11 finalized">
+      <option name="closed" value="true" />
+      <created>1788182291561</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1788182291561</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +388,8 @@
     <MESSAGE value="Day11 README first version" />
     <MESSAGE value="Day11 A version completed" />
     <MESSAGE value="Day11 B README first version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day11 B README first version" />
+    <MESSAGE value="Day11 finalized" />
+    <option name="LAST_COMMIT_MESSAGE" value="Day11 finalized" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

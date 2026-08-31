@@ -10,38 +10,43 @@ import java.util.Map;
 
 public class MandatoryNodesPathCountingStrategy implements PathCountingStrategy {
 
-    private final String mandatory1;
-    private final String mandatory2;
+    private final List<String> mandatoryNodes;
+    private final int targetMask;
 
-    public MandatoryNodesPathCountingStrategy(String mandatory1, String mandatory2) {
-        this.mandatory1 = mandatory1;
-        this.mandatory2 = mandatory2;
+    public MandatoryNodesPathCountingStrategy(List<String> mandatoryNodes) {
+        this.mandatoryNodes = List.copyOf(mandatoryNodes);
+        this.targetMask = (1 << this.mandatoryNodes.size()) - 1;
     }
 
     @Override
-    public long countPaths(ReactorNetwork reactorNetwork, PathQuery query) {
+    public long countPaths(ReactorNetwork network, PathQuery query) {
         Map<State, Long> memo = new HashMap<>();
-        boolean startV1 = query.start().equals(mandatory1);
-        boolean startV2 = query.start().equals(mandatory2);
-        return dfs(query.start(), query.end(), reactorNetwork.adjacencyList(), startV1, startV2, memo);
+        int initialMask = calculateMask(query.start(), 0);
+        return dfs(query.start(), query, network.adjacencyList(), initialMask, memo);
     }
 
-    private long dfs(String current, String target, Map<String, List<String>> adjList, boolean visited1, boolean visited2, Map<State, Long> memo) {
-        if (current.equals(target)) { return (visited1 && visited2) ? 1L : 0L; }
-
-        State stateKey = new State(current, visited1, visited2);
+    private long dfs(String current, PathQuery query, Map<String, List<String>> adjList, int visitedMask, Map<State, Long> memo) {
+        if (current.equals(query.end())) { return (visitedMask == targetMask) ? 1L : 0L; }
+        State stateKey = new State(current, visitedMask);
         if (memo.containsKey(stateKey)) { return memo.get(stateKey); }
-
         long count = 0;
         List<String> neighbors = adjList.getOrDefault(current, Collections.emptyList());
+
         for (String neighbor : neighbors) {
-            boolean nextV1 = visited1 || neighbor.equals(mandatory1);
-            boolean nextV2 = visited2 || neighbor.equals(mandatory2);
-            count += dfs(neighbor, target, adjList, nextV1, nextV2, memo);
+            int nextMask = calculateMask(neighbor, visitedMask);
+            count += dfs(neighbor, query, adjList, nextMask, memo);
         }
         memo.put(stateKey, count);
         return count;
     }
 
-    private record State(String node, boolean visited1, boolean visited2) {}
+    private int calculateMask(String node, int currentMask) {
+        for (int i = 0; i < mandatoryNodes.size(); i++) {
+            if (mandatoryNodes.get(i).equals(node)) {
+                return currentMask | (1 << i);
+            }
+        }
+        return currentMask;
+    }
+    private record State(String node, int visitedMask) {}
 }
