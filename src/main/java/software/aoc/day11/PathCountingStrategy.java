@@ -1,5 +1,5 @@
 package software.aoc.day11;
 
 public interface PathCountingStrategy {
-    long countPaths(ReactorNetwork reactorNetwork, String start, String end);
+    long countPaths(ReactorNetwork reactorNetwork, PathQuery query);
 }

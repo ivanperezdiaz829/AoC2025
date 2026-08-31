@@ -1,4 +1,8 @@
-package software.aoc.day11;
+package software.aoc.day11.a;
+
+import software.aoc.day11.PathCountingStrategy;
+import software.aoc.day11.PathQuery;
+import software.aoc.day11.ReactorNetwork;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -7,9 +11,9 @@ import java.util.Map;
 
 public class MemoizedDFSPathCountingStrategy implements PathCountingStrategy {
     @Override
-    public long countPaths(ReactorNetwork reactorNetwork, String start, String end) {
+    public long countPaths(ReactorNetwork reactorNetwork, PathQuery query) {
         Map<String, Long> memo =  new HashMap<>();
-        return dfs(start, end, reactorNetwork.adjacencyList(), memo);
+        return dfs(query.start(), query.end(), reactorNetwork.adjacencyList(), memo);
     }
 
     private long dfs(String current, String target, Map<String, List<String>> adjList, Map<String, Long> memo) {
