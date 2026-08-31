@@ -41,9 +41,15 @@ classDiagram
     +solve(input: String) long
   }
 
+  class Day11BSolver {
+    +solve(input: String) long
+  }
+
   class Day11Solver {
     -reader: ReactorNetworkReader
     -strategy: PathCountingStrategy
+    -startNode: String
+    -endNode: String
     +execute(input: String) long
   }
 
@@ -60,7 +66,13 @@ classDiagram
 
   class MemoizedDfsPathCountingStrategy {
     +countPaths(network: ReactorNetwork, start: String, end: String) long
-    -dfs(current: String, target: String, adjList: Map, memo: Map) long
+  }
+
+  class MandatoryNodesPathCountingStrategy {
+    -node1: String
+    -node2: String
+    +countPaths(network: ReactorNetwork, start: String, end: String) long
+    -dfs(current: String, target: String, adjList: Map, v1: boolean, v2: boolean, memo: Map) long
   }
 
   class ReactorNetworkReader {
@@ -69,10 +81,13 @@ classDiagram
 
 %% Relaciones de Implementación
   Solver <|.. Day11ASolver : implementa
+  Solver <|.. Day11BSolver : implementa
   PathCountingStrategy <|.. MemoizedDfsPathCountingStrategy : implementa
+  PathCountingStrategy <|.. MandatoryNodesPathCountingStrategy : implementa
 
 %% Relaciones de Ensamblaje e Inyección
   Day11ASolver ..> Day11Solver : ensambla
+  Day11BSolver ..> Day11Solver : ensambla
   Day11Solver *-- ReactorNetworkReader : inyecta
   Day11Solver *-- PathCountingStrategy : inyecta
 
