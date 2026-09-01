@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="Day11 refactorized">
-      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day12/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day12/BinPackingStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day12/ChristmasTreeFarm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day12/ChristmasTreeFarmReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day12/Day12Solver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day12/Position2D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day12/PresentShape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day12/RegionTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day12/ShapeVariation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day12/a/BacktrackingBinPackingStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day12/a/Day12ASolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/software/aoc/day12/a/Day12ASolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day12/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day12/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Record" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Record" />
       </list>
     </option>
   </component>
@@ -57,6 +69,7 @@
     "JUnit.Day10BSolverTest.executor": "Run",
     "JUnit.Day11ASolverTest.executor": "Run",
     "JUnit.Day11BSolverTest.executor": "Run",
+    "JUnit.Day12ASolverTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
@@ -76,18 +89,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="software.aoc.day12" />
       <recent name="software.aoc.day11" />
       <recent name="software.aoc.day10" />
       <recent name="software.aoc.day09" />
       <recent name="software.aoc.day08" />
-      <recent name="software.aoc.day07" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="software.aoc.day12.a" />
       <recent name="software.aoc.day11.a" />
       <recent name="software.aoc.day10.a" />
       <recent name="software.aoc.day10.b" />
       <recent name="software.aoc.day09.a" />
-      <recent name="software.aoc.day09.b" />
     </key>
   </component>
   <component name="SharedIndexes">
