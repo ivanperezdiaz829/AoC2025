@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="Day12 Completed">
+    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="fix(README): Diagram improvements added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day01/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day01/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day02/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day02/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -364,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788260678154</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="fix(README): Diagram improvements added">
+      <option name="closed" value="true" />
+      <created>1788776335188</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1788776335188</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,7 +390,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Day07 README.md first version" />
     <MESSAGE value="Day07 part A solved" />
     <MESSAGE value="Minnor README fix" />
     <MESSAGE value="Day07 finalized" />
@@ -407,7 +414,8 @@
     <MESSAGE value="Day11 finalized" />
     <MESSAGE value="Day11 refactorized" />
     <MESSAGE value="Day12 Completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day12 Completed" />
+    <MESSAGE value="fix(README): Diagram improvements added" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(README): Diagram improvements added" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
