@@ -11,8 +11,8 @@ El objetivo de este reto es descifrar la combinación de seguridad de la entrada
 
 ## Explicación de las Relaciones y Elementos
 
-*   **Implementación:** `Day02ASolver` y `Day01BSolver` implementan la interfaz `Solver`, exponiendo así únicamente el método público `solve` hacia el exterior.
-*   **Ensamblaje e Inyección:** Los solvers específicos (`Day01ASolver/B`) instancian las dependencias correctas (ej. `EndAtZero`) y se las inyectan al motor principal (`Day01Solver`), el cual ejecuta el algoritmo de forma agnóstica a través de su método `execute`.
+*   **Implementación:** `Day01ASolver` y `Day01BSolver` implementan la interfaz `Solver`, exponiendo así únicamente el método público `solve` hacia el exterior.
+*   **Ensamblaje e Inyección:** Los solvers específicos (`Day01ASolver`/`Day01BSolver`) instancian las dependencias correctas (por ejemplo, `EndAtZero` o `PassThroughZero`) y se las inyectan al motor principal (`Day01Solver`), el cual ejecuta el algoritmo de forma agnóstica a través de su método `execute`.
 *   **Composición y Uso:** `Day01Solver` contiene a `RotationReader` y `TotalScorer`, delegando en ellos. A su vez, todos los dominios se comunican de forma fuertemente tipada utilizando los Records inmutables `Dial` y `Rotation`.
 
 ---
@@ -21,18 +21,18 @@ El objetivo de este reto es descifrar la combinación de seguridad de la entrada
 
 - **Los Ensambladores y el Motor Principal:**
   *   `Solver` **(Interfaz):** Contrato global del repositorio para la ejecución de cualquier día.
-  *   `Day02ASolver` / `Day01BSolver` **(Clases):** Implementan `Solver`. Configuran las dependencias concretas para la Parte A o B y se las pasan al motor genérico.
+  *   `Day01ASolver` / `Day01BSolver` **(Clases):** Implementan `Solver`. Configuran las dependencias concretas para la Parte A o B y se las pasan al motor genérico.
   *   `Day01Solver` **(Clase):** Actúa como el motor principal agnóstico. Recibe las dependencias inyectadas por constructor (`RotationReader` y `TotalScorer`) y orquesta el flujo (lee, itera, gira el dial y evalúa puntos).
 - **Dominio de Lectura (Abstracción y Value Objects):**
   *   `RotationReader` **(Interfaz):** Establece el contrato público para la lectura de datos.
   *   `ObtainRotation` **(Clase):** Implementa el contrato utilizando la API de Streams de Java para transformar el archivo de texto en una lista de objetos `Rotation`.
-  *   `Rotation` **(Record):** *Value Object* inmutable que encapsula la instrucción analizada (`dirección` y `pasos`), liberando al resto del sistema de la responsabilidad de parsear *Strings*.
+  *   `Rotation` **(Record):** *Value Object* inmutable que encapsula la instrucción analizada (`direction` y `steps`), liberando al resto del sistema de la responsabilidad de parsear *Strings*. Expone un factory estático `fromString` para construirse a partir de la notación del input (por ejemplo, `L68`).
 - **Dominio de Puntuación (Polimorfismo):**
-  *   `TotalScorer` **(Interfaz):** Interfaz que define el contrato `calculateScore(oldDial, newDial, rotation)` permitiendo la inyección de la lógica de negocio.
-  *   `EndAtZero` **(Clase):** Implementación concreta de la Parte A.
-  *   `PassThroughZero` **(Clase):** Implementación concreta de la Parte B.
+  *   `TotalScorer` **(Interfaz):** Interfaz que define el contrato `calculateScore(oldDial, newDial, rotation)`, permitiendo la inyección de la lógica de negocio de puntuación.
+  *   `EndAtZero` **(Clase):** Implementación concreta para la Parte A — puntúa solo cuando el dial termina exactamente en la posición `0` tras completar una rotación.
+  *   `PassThroughZero` **(Clase):** Implementación concreta para la Parte B — puntúa cada vez que el dial pasa o toca la posición `0`, incluyendo los pasos intermedios del giro.
 - **Dominio de Estado (Inmutabilidad):**
-  *   `Dial` **(Record):** Modela el comportamiento físico de la caja fuerte. Actúa como un módulo altamente cohesivo que aplica la matemática del módulo circular recibiendo un objeto `Rotation` para calcular la nueva posición, retornando siempre un nuevo estado para evitar la mutación.
+  *   `Dial` **(Record):** Modela el comportamiento físico de la caja fuerte. Actúa como un módulo altamente cohesivo que aplica la matemática del módulo circular, recibiendo un objeto `Rotation` para calcular la nueva posición (`rotate`) y retornando siempre un nuevo estado, sin mutar el original.
 
 ```mermaid
 classDiagram
@@ -41,64 +41,75 @@ classDiagram
     +solve(input: String) long
   }
 
-  class Day02ASolver {
+  class Day01ASolver {
     +solve(input: String) long
   }
 
-  class Day02BSolver {
+  class Day01BSolver {
     +solve(input: String) long
   }
 
-  class Day02Solver {
-    -reader: RangeReader
-    -validator: IdValidator
+  class Day01Solver {
+    -reader: RotationReader
+    -scorer: TotalScorer
     +execute(input: String) long
   }
 
-  class IdRange {
+  class Rotation {
     «record»
-    -start: long
-    -end: long
+    -direction: char
+    -steps: int
+    +fromString(raw: String)$ Rotation
   }
 
-  class RangeReader {
+  class RotationReader {
     «interface»
-    +readRanges(input: String) List~IdRange~
+    +readRotation(input: String) List~Rotation~
   }
 
-  class ObtainRanges {
-    +readRanges(input: String) List~IdRange~
+  class ObtainRotation {
+    +readRotation(input: String) List~Rotation~
   }
 
-  class IdValidator {
+  class TotalScorer {
     «interface»
-    +isInvalid(id: long) boolean
+    +calculateScore(oldDial: Dial, newDial: Dial, rotation: Rotation) int
   }
 
-  class RepeatedSequenceValidator {
-    +isInvalid(id: long) boolean
+  class EndAtZero {
+    +calculateScore(oldDial: Dial, newDial: Dial, rotation: Rotation) int
   }
 
-  class FutureRuleValidator {
-    +isInvalid(id: long) boolean
+  class PassThroughZero {
+    +calculateScore(oldDial: Dial, newDial: Dial, rotation: Rotation) int
+  }
+
+  class Dial {
+    «record»
+    -position: int
+    +rotate(rotation: Rotation) Dial
   }
 
 %% Relaciones de Implementación
-  Solver <|.. Day02ASolver : implementa
-  Solver <|.. Day02BSolver : implementa
-  RangeReader <|.. ObtainRanges : implementa
-  IdValidator <|.. RepeatedSequenceValidator : implementa
-  IdValidator <|.. FutureRuleValidator : implementa
+  Solver <|.. Day01ASolver : implementa
+  Solver <|.. Day01BSolver : implementa
+  RotationReader <|.. ObtainRotation : implementa
+  TotalScorer <|.. EndAtZero : implementa
+  TotalScorer <|.. PassThroughZero : implementa
 
 %% Relaciones de Orquestación e Inyección
-  Day02ASolver ..> Day02Solver : ensambla
-  Day02BSolver ..> Day02Solver : ensambla
-  Day02Solver *-- RangeReader : inyecta
-  Day02Solver *-- IdValidator : inyecta
+  Day01ASolver ..> Day01Solver : ensambla
+  Day01BSolver ..> Day01Solver : ensambla
+  Day01Solver *-- RotationReader : inyecta
+  Day01Solver *-- TotalScorer : inyecta
 
 %% Dependencias de Dominio (Value Objects e Inmutabilidad)
-  ObtainRanges ..> IdRange : crea
-  Day02Solver ..> IdRange : itera
+  ObtainRotation ..> Rotation : crea
+  Day01Solver ..> Dial : coordina
+  Day01Solver ..> Rotation : itera
+  TotalScorer ..> Dial : evalúa
+  TotalScorer ..> Rotation : evalúa
+  Dial ..> Rotation : usa
 ```
 
 ---
@@ -107,19 +118,20 @@ classDiagram
 
 El diseño de esta solución se ha construido sobre los pilares de la calidad de software, separando responsabilidades y garantizando la mantenibilidad del código:
 
-*   **Principio de Responsabilidad Única (SRP):** Cada módulo en el sistema se centra en una tarea específica. Por ejemplo, `TotalScorer` solo calcula puntos y `RotationReader` solo procesa texto, asegurando que cada clase tenga una única razón para cambiar y sea más fácil de probar.
-*   **Abstracción y Diseño por Contrato:** Se utilizan interfaces (`TotalScorer` y `RotationReader`) como un contrato que define métodos públicos, ocultando detalles complejos de implementación. Esto facilita comprender el comportamiento del código sin necesidad de analizar operaciones interconectadas.
-*   **Bajo Acoplamiento e Inyección de Dependencias:** El `Day01Solver` no crea sus propias dependencias, sino que estas se inyectan desde fuera separando la creación del objeto con su uso, reduciendo la dependencia interna y permitiendo reemplazar módulos sin afectar al estado del sistema.
-*   **Principio Abierto Cerrado (OCP):** El diseño permite añadir nuevas reglas de puntuación creando nuevas clases, extendiendo el comportamiento sin necesidad de modificar el código existente.
-*   **Principio de Sustitución de Liskov (LSP):** Cualquier objeto de un subtipo (como `EndAtZero` y `PassThroughZero`) puede sustituir a un supertipo (`TotalScorer`) garantizando la interoperabilidad sin alterar la correctitud del programa.
-*   **Principio de Inversión de Dependencias (DIP):** El módulo de alto nivel (`Day01Solver`) no depende de las implementaciones concretas de bajo nivel, sino que depende directamente de las abstracciones.
+*   **Principio de Responsabilidad Única (SRP):** Cada módulo del sistema se centra en una tarea específica. `TotalScorer` solo calcula puntos y `RotationReader` solo procesa texto, asegurando que cada clase tenga una única razón para cambiar y sea más fácil de probar.
+*   **Abstracción y Diseño por Contrato:** Se utilizan interfaces (`TotalScorer` y `RotationReader`) como un contrato que define métodos públicos, ocultando detalles complejos de implementación.
+*   **Bajo Acoplamiento e Inyección de Dependencias:** `Day01Solver` no crea sus propias dependencias, sino que estas se inyectan desde fuera, separando la creación del objeto de su uso y permitiendo reemplazar módulos sin afectar al resto del sistema.
+*   **Principio Abierto/Cerrado (OCP):** El diseño permite añadir nuevas reglas de puntuación creando nuevas clases que implementen `TotalScorer`, sin necesidad de modificar el código existente.
+*   **Principio de Sustitución de Liskov (LSP):** Cualquier objeto de un subtipo (`EndAtZero`, `PassThroughZero`) puede sustituir a su supertipo (`TotalScorer`) garantizando la interoperabilidad sin alterar la correctitud del programa.
+*   **Principio de Inversión de Dependencias (DIP):** `Day01Solver`, como módulo de alto nivel, no depende de implementaciones concretas de bajo nivel, sino directamente de las abstracciones `RotationReader` y `TotalScorer`.
+*   **Inmutabilidad:** `Rotation` y `Dial` son records inmutables; `Dial.rotate()` siempre retorna una nueva instancia en vez de mutar el estado existente.
 
 ---
 
 ## Mecanismos del Lenguaje
 
-Para llegar a cabo esta arquitectura, se han empleado las siguientes características avanzadas de Java:
+Para llevar a cabo esta arquitectura, se han empleado las siguientes características avanzadas de Java:
 
 *   **Polimorfismo (Upcasting):** Las instancias de tipos específicos se asignan de forma automática y segura a variables de supertipo (interfaz), permitiendo trabajar con los objetos de manera genérica.
 *   **API de Streams:** Se utiliza para el procesamiento declarativo y funcional del archivo de entrada en `ObtainRotation`. Mediante operaciones intermedias (como `map` o `filter`) y operaciones terminales (como `collect`), se transforma el texto en objetos manejables.
-*   **Clases Internas de Clase (Static):** Entidades inmutables como el `Dial` pueden ser encapsuladas como clases estáticas internas, ya que pertenecen lógicamente a la estructura pero no necesitan acceso a los miembros de la instancia externa.
+*   **Records con factory estático:** `Rotation.fromString()` construye instancias validadas a partir de la notación textual del input, evitando exponer un constructor que acepte datos sin parsear.
