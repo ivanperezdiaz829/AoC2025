@@ -55,6 +55,84 @@ classDiagram
     +execute(input: String) long
   }
 
+  class SimulationStrategy {
+    «interface»
+    +simulate(manifold: TachyonManifold) long
+  }
+
+  class ClassicalSimulationStrategy {
+    +simulate(manifold: TachyonManifold) long
+  }
+
+  class QuantumSimulationStrategy {
+    +simulate(manifold: TachyonManifold) long
+  }
+
+  class ManifoldReader {
+    «interface»
+    +read(input: String) TachyonManifold
+  }
+
+  class ObtainManifold {
+    +read(input: String) TachyonManifold
+    -findStart(rows: List~String~) Position
+  }
+
+  class TachyonManifold {
+    «record»
+    -rows: List~String~
+    -startPosition: Position
+    +runSimulation(strategy: SimulationStrategy) long
+  }
+
+  class Position {
+    «record»
+    -row: int
+    -col: int
+  }
+
+%% Relaciones de Implementación
+  Solver <|.. Day07ASolver : implementa
+  Solver <|.. Day07BSolver : implementa
+  SimulationStrategy <|.. ClassicalSimulationStrategy : implementa
+  SimulationStrategy <|.. QuantumSimulationStrategy : implementa
+  ManifoldReader <|.. ObtainManifold : implementa
+
+%% Relaciones de Ensamblaje e Inyección
+  Day07ASolver ..> Day07Solver : ensambla
+  Day07BSolver ..> Day07Solver : ensambla
+  Day07Solver *-- ManifoldReader : inyecta
+  Day07Solver *-- SimulationStrategy : inyecta
+
+%% Relaciones de Dominio
+  Day07Solver ..> TachyonManifold : coordina
+  TachyonManifold ..> SimulationStrategy : usa
+  TachyonManifold *-- Position : contiene
+  ObtainManifold ..> TachyonManifold : crea
+  ObtainManifold ..> Position : crea
+```
+
+```mermaid
+classDiagram
+  class Solver {
+    «interface»
+    +solve(input: String) long
+  }
+
+  class Day07ASolver {
+    +solve(input: String) long
+  }
+
+  class Day07BSolver {
+    +solve(input: String) long
+  }
+
+  class Day07Solver {
+    -reader: ManifoldReader
+    -strategy: SimulationStrategy
+    +execute(input: String) long
+  }
+
   class TachyonManifold {
     «record»
     -rows: List~String~
