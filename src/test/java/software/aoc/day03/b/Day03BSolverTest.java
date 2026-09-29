@@ -28,7 +28,7 @@ class Day03BSolverTest {
 
     @Test
     void shouldSolveRealInput() throws IOException {
-        Path inputPath = Path.of("src", "test", "resources", "d03-a", "battery.txt");
+        Path inputPath = Path.of("src", "test", "resources", "d03-b", "battery.txt");
         String input = Files.readString(inputPath);
 
         Solver solver = new Day03BSolver();
