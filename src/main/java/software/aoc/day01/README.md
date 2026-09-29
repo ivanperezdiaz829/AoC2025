@@ -105,10 +105,8 @@ classDiagram
 
 %% Dependencias de Dominio (Value Objects e Inmutabilidad)
   ObtainRotation ..> Rotation : crea
-  Day01Solver ..> Dial : coordina
-  Day01Solver ..> Rotation : itera
-  TotalScorer ..> Dial : evalúa
-  TotalScorer ..> Rotation : evalúa
+  TotalScorer ..> Dial : usa
+  TotalScorer ..> Rotation : usa
   Dial ..> Rotation : usa
 ```
 
