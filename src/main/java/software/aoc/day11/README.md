@@ -28,7 +28,7 @@ Tras bajar por una escalera desde la fábrica, llegamos a un reactor toroidal co
   *   `Day11BSolver` **(Clase):** Implementa `Solver`. Inyecta `MandatoryNodesPathCountingStrategy` (con `dac`/`fft` como nodos obligatorios) y `PathQuery("svr", "out")` en el mismo motor, reutilizando por completo la lectura y el modelo de dominio.
   *   `Day11Solver` **(Clase):** Orquestador agnóstico. Lee el input a través de `ReactorNetworkReader` y delega en el `ReactorNetwork` resultante la ejecución de la estrategia con la consulta inyectada.
 - **Dominio de Lectura y Modelado (Value Objects):**
-  *   `ReactorNetworkReader` **(Clase):** Parsea cada línea del input (`dispositivo: salida1 salida2 ...`) en una lista de adyacencia, agrupándola en un `ReactorNetwork`.
+  *   `ReactorNetworkReader` **(Interfaz):** Parsea los valores de entrada y hace de contrato público para leer la entrada de los datos.
   *   `ReactorNetwork` **(Record):** *Value Object* inmutable que contiene la lista de adyacencia completa del grafo. Expone `countPathsFrom(query, strategy)`, delegando en la estrategia inyectada el criterio de conteo sin exponer su estructura interna al orquestador.
   *   `PathQuery` **(Record):** *Value Object* que agrupa el nodo de origen y el de destino de una búsqueda, evitando manejar `start`/`end` como parámetros primitivos sueltos en cascada por todas las firmas del dominio.
 - **Dominio de Estrategia (Polimorfismo):**
@@ -86,6 +86,11 @@ classDiagram
   }
 
   class ReactorNetworkReader {
+    «interface»
+    +read(input: String) ReactorNetwork
+  }
+
+  class ObtainReactorNetwork {
     +read(input: String) ReactorNetwork
   }
 
@@ -94,6 +99,7 @@ classDiagram
   Solver <|.. Day11BSolver : implementa
   PathCountingStrategy <|.. MemoizedDfsPathCountingStrategy : implementa
   PathCountingStrategy <|.. MandatoryNodesPathCountingStrategy : implementa
+  ReactorNetworkReader <|.. ObtainReactorNetwork : implementa
 
 %% Relaciones de Ensamblaje e Inyección
   Day11ASolver ..> Day11Solver : ensambla
@@ -103,11 +109,10 @@ classDiagram
   Day11Solver *-- PathQuery : inyecta
 
 %% Relaciones de Dominio
-  Day11Solver ..> ReactorNetwork : coordina
   ReactorNetwork ..> PathCountingStrategy : usa
   ReactorNetwork ..> PathQuery : usa
   PathCountingStrategy ..> PathQuery : usa
-  ReactorNetworkReader ..> ReactorNetwork : crea
+  ObtainReactorNetwork ..> ReactorNetwork : crea
 ```
 
 ---
