@@ -105,8 +105,7 @@ classDiagram
   Day07Solver *-- SimulationStrategy : inyecta
 
 %% Relaciones de Dominio
-  Day07Solver ..> TachyonManifold : coordina
-  TachyonManifold ..> SimulationStrategy : usa
+  TachyonManifold -- SimulationStrategy : usa
   TachyonManifold *-- Position : contiene
   ObtainManifold ..> TachyonManifold : crea
   ObtainManifold ..> Position : crea
