@@ -58,6 +58,11 @@ classDiagram
   }
 
   class PlaygroundReader {
+    «interface»
+    +read(input: String) Playground
+  }
+
+  class ObtainPlayground {
     +read(input: String) Playground
   }
 
@@ -113,6 +118,7 @@ classDiagram
 %% Relaciones de Implementación
   Solver <|.. Day08ASolver : implementa
   Solver <|.. Day08BSolver : implementa
+  PlaygroundReader <|.. ObtainPlayground : implementa
   ConnectionStrategy <|.. FixedLimitConnectionStrategy : implementa
   ConnectionStrategy <|.. CompleteCircuitConnectionStrategy : implementa
 
@@ -124,7 +130,7 @@ classDiagram
 
 %% Relaciones de Dominio
   Day08Solver ..> Playground : coordina
-  PlaygroundReader ..> Playground : crea
+  ObtainPlayground ..> Playground : crea
   Playground *-- JunctionBox : contiene
   Playground ..> BoxPair : genera
   Playground ..> ConnectionStrategy : usa
