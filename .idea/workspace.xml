@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="fix(README): Diagram improvements added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="87481fed-fd1a-487d-b7ce-45529d48a5d2" name="Changes" comment="fix(Day08): Reader Interface refactorized">
+      <change afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/ObtainManifold.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/software/aoc/day07/ManifoldReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/software/aoc/day07/ManifoldReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,38 +44,39 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.Day06ASolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day06BSolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day07ASolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day07BSolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day08ASolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day08BSolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day09ASolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day09BSolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day10ASolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day10BSolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day11ASolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day11BSolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Day12ASolverTest.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.Day06ASolverTest.executor": "Run",
+    "JUnit.Day06BSolverTest.executor": "Run",
+    "JUnit.Day07ASolverTest.executor": "Run",
+    "JUnit.Day07BSolverTest.executor": "Run",
+    "JUnit.Day08ASolverTest.executor": "Run",
+    "JUnit.Day08BSolverTest.executor": "Run",
+    "JUnit.Day09ASolverTest.executor": "Run",
+    "JUnit.Day09BSolverTest.executor": "Run",
+    "JUnit.Day10ASolverTest.executor": "Run",
+    "JUnit.Day10BSolverTest.executor": "Run",
+    "JUnit.Day11ASolverTest.executor": "Run",
+    "JUnit.Day11BSolverTest.executor": "Run",
+    "JUnit.Day12ASolverTest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="software.aoc.day12" />
@@ -94,8 +96,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-34e2839f716b-intellij.indexing.shared.core-IU-262.9437.185" />
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.9437.185" />
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10315.125" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10315.125" />
       </set>
     </attachedChunks>
   </component>
@@ -379,7 +381,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788780195261</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="fix(Day08): Reader Interface refactorized">
+      <option name="closed" value="true" />
+      <created>1790708544596</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1790708544596</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +407,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Day07 part A solved" />
     <MESSAGE value="Minnor README fix" />
     <MESSAGE value="Day07 finalized" />
     <MESSAGE value="fix(README): All mentions to SafeSolver changed by Solver" />
@@ -422,7 +431,8 @@
     <MESSAGE value="Day11 refactorized" />
     <MESSAGE value="Day12 Completed" />
     <MESSAGE value="fix(README): Diagram improvements added" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(README): Diagram improvements added" />
+    <MESSAGE value="fix(Day08): Reader Interface refactorized" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(Day08): Reader Interface refactorized" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
