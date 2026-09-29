@@ -25,7 +25,7 @@ Tras salir del laboratorio, llegamos a un patio de juegos subterráneo donde los
   *   `Day08BSolver` **(Clase):** Implementa `Solver`. Inyecta `CompleteCircuitConnectionStrategy` en el mismo motor, reutilizando por completo la lectura y el modelo de dominio.
   *   `Day08Solver` **(Clase):** Orquestador agnóstico. Lee el input a través de `PlaygroundReader` y delega en el `Playground` resultante la ejecución de la estrategia inyectada.
 - **Dominio de Lectura y Modelado (Value Objects):**
-  *   `PlaygroundReader` **(Clase):** Transforma la entrada de texto plano en un `Playground`. Se mantiene como clase concreta sin interfaz (YAGNI): no hay ningún indicio en el enunciado de un segundo formato de entrada que justifique abstraerla, igual que se decidió con `ManifoldReader` en el día 7.
+  *   `PlaygroundReader` **(Interfaz):** Contrato público que define el método `read` para la lectura de los `Manifold`.
   *   `Playground` **(Record):** *Value Object* inmutable que contiene la colección de `JunctionBox`. Expone `applyConnectionStrategy(strategy)`, generando internamente las combinaciones de pares, ordenándolas por distancia y entregándoselas a la estrategia, sin exponer su colección interna.
   *   `JunctionBox` **(Record):** Representa una caja de conexión con un identificador único y su posición en el espacio.
   *   `Position3D` **(Record):** Encapsula las coordenadas `(x, y, z)` y la lógica espacial `distanceSquared`. Se usa distancia al cuadrado en vez de distancia euclídea real: para ordenar pares por cercanía no hace falta la raíz cuadrada (es una transformación monótona que preserva el orden), y evitarla mantiene el cálculo en aritmética entera exacta con `long`, sin introducir errores de precisión de punto flotante.
@@ -129,7 +129,6 @@ classDiagram
   Day08Solver *-- ConnectionStrategy : inyecta
 
 %% Relaciones de Dominio
-  Day08Solver ..> Playground : coordina
   ObtainPlayground ..> Playground : crea
   Playground *-- JunctionBox : contiene
   Playground ..> BoxPair : genera
@@ -147,7 +146,6 @@ classDiagram
 *   **Principio de Responsabilidad Única (SRP):** `Position3D` calcula distancias; `BoxPair` representa una arista ordenable; `Playground` genera y ordena combinaciones; `UnionFind` rastrea circuitos; cada `ConnectionStrategy` decide cuándo parar y qué devolver. Ninguna clase mezcla más de una de estas responsabilidades.
 *   **Strategy Pattern anticipado correctamente:** la interfaz `ConnectionStrategy` se introdujo antes de conocer el enunciado completo de la Parte B, previendo que el criterio de parada cambiaría. El enunciado confirmó esa previsión, y añadir `CompleteCircuitConnectionStrategy` no requirió modificar ni `Day08Solver` ni `Playground` — validación práctica del principio Abierto/Cerrado.
 *   **Tell, Don't Ask:** `Playground` no expone su lista de `JunctionBox` para que la estrategia genere los pares desde fuera; genera y ordena los `BoxPair` internamente y solo entrega el resultado ya preparado a la estrategia.
-*   **YAGNI:** `PlaygroundReader` se mantiene como clase concreta sin interfaz, igual que `ManifoldReader` en el día 7 — no hay una segunda forma de leer el input que lo justifique.
 *   **Encapsulación de la eficiencia algorítmica:** `UnionFind` usa arrays primitivos en vez de records inmutables deliberadamente. Es una estructura interna de un solo uso, orientada a rendimiento (O(α(N)) por fusión), y su representación nunca se filtra fuera de la clase — las estrategias solo ven `union()` y `getComponentSizes()`.
 *   **Inmutabilidad y precisión numérica:** `Position3D.distanceSquared` evita la raíz cuadrada tanto por rendimiento como por corrección: al comparar únicamente para ordenar, la distancia al cuadrado preserva el mismo orden relativo que la distancia real, evitando además la pérdida de precisión de trabajar con `double`.
 *   **Inyección de Dependencias:** `Day08Solver` no crea ni `PlaygroundReader` ni `ConnectionStrategy` — ambos se inyectan desde los solvers concretos.

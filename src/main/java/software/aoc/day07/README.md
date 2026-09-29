@@ -26,7 +26,7 @@ Tras salir del compactador de basura, llegamos a un ala de investigación del Po
   *   `Day07BSolver` **(Clase):** Implementa `Solver`. Configura e inyecta `QuantumSimulationStrategy` en el mismo motor, reutilizando por completo la lectura y el modelo de dominio.
   *   `Day07Solver` **(Clase):** Orquestador agnóstico. Lee el input a través de `ManifoldReader` y delega en el `TachyonManifold` resultante la ejecución de la estrategia inyectada. No conoce las reglas de propagación ni de bifurcación de los haces.
 - **Dominio de Lectura y Modelado (Value Objects):**
-  *   `ManifoldReader` **(Clase):** Responsable de parsear el texto de entrada en un `TachyonManifold`, localizando además la posición inicial del haz (`findStart`). Se mantiene como clase concreta deliberadamente: no hay una segunda forma de leer el input que justifique una interfaz.
+  *   `ManifoldReader` **(Interfaz):** Contrato público que define el método `read` para la lectura de los datos de entrada.
   *   `TachyonManifold` **(Record):** *Value Object* inmutable que representa la cuadrícula completa del manifold junto con su posición de entrada (`startPosition`). Se somete a sí mismo a una simulación (`runSimulation`) delegando el algoritmo concreto en la estrategia recibida, sin exponer su representación interna al resto del sistema.
   *   `Position` **(Record):** *Value Object* que representa una coordenada `(row, col)` dentro de la cuadrícula, evitando pares de enteros sueltos tanto en `ManifoldReader` como en las estrategias de simulación.
 - **Dominio de Estrategia (Polimorfismo):**
