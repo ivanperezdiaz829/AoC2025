@@ -3,6 +3,7 @@ package software.aoc.day08.a;
 import software.aoc.Solver;
 import software.aoc.day08.ConnectionStrategy;
 import software.aoc.day08.Day08Solver;
+import software.aoc.day08.ObtainPlayground;
 import software.aoc.day08.PlaygroundReader;
 
 public class Day08ASolver implements Solver {
@@ -18,7 +19,7 @@ public class Day08ASolver implements Solver {
 
     @Override
     public long solve(String input) {
-        PlaygroundReader reader = new PlaygroundReader();
+        PlaygroundReader reader = new ObtainPlayground();
         ConnectionStrategy strategy = new FixedLimitConnectionStrategy(connectionLimit);
         Day08Solver coreSolver = new Day08Solver(reader, strategy);
         return coreSolver.execute(input);
