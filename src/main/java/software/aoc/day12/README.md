@@ -28,7 +28,7 @@ Este día no tiene Parte B — es el cierre del calendario de Advent of Code, y 
   *   `Day12ASolver` **(Clase):** Implementa `Solver`. Inyecta `BacktrackingBinPackingStrategy` y `ChristmasTreeFarmReader` en el motor central.
   *   `Day12Solver` **(Clase):** Orquestador agnóstico. Lee el input a través de `ChristmasTreeFarmReader` y delega en el `ChristmasTreeFarm` resultante el conteo de regiones que caben.
 - **Dominio de Lectura y Modelado (Value Objects):**
-  *   `ChristmasTreeFarmReader` **(Clase):** Parsea el input en dos bloques — el catálogo de formas y la lista de regiones — construyendo un `ChristmasTreeFarm` completo. Se mantiene sin interfaz (YAGNI), coherente con la decisión de los días 7 a 11.
+  *   `ChristmasTreeFarmReader` **(Interfaz):** Es el contrato público que define el parseo de los datos de entrada que lee en dos bloques diferentes.
   *   `ChristmasTreeFarm` **(Record):** *Value Object* inmutable que contiene la lista de `RegionTask` a evaluar. Expone `countFittableRegions(strategy)`, delegando en la estrategia el criterio de encaje por región y contando cuántas lo satisfacen.
   *   `RegionTask` **(Record):** Representa una región concreta bajo un árbol, con sus dimensiones (`width`, `height`) y la lista de `PresentShape` que debe contener.
   *   `PresentShape` **(Record):** Representa una forma de regalo del catálogo, identificada por su `id` original del input, junto con su `area` (número de celdas ocupadas) y el conjunto precalculado de todas sus orientaciones válidas (`variations`).
@@ -103,12 +103,18 @@ classDiagram
   }
 
   class ChristmasTreeFarmReader {
+    «interface»
+    +read(input: String) ChristmasTreeFarm
+  }
+
+  class ObtainChristmasTreeFarm {
     +read(input: String) ChristmasTreeFarm
   }
 
 %% Relaciones de Implementación
   Solver <|.. Day12ASolver : implementa
   BinPackingStrategy <|.. BacktrackingBinPackingStrategy : implementa
+  ChristmasTreeFarmReader <|.. ObtainChristmasTreeFarm : implementa
 
 %% Relaciones de Ensamblaje e Inyección
   Day12ASolver ..> Day12Solver : ensambla
@@ -116,13 +122,12 @@ classDiagram
   Day12Solver *-- BinPackingStrategy : inyecta
 
 %% Relaciones de Dominio
-  Day12Solver ..> ChristmasTreeFarm : coordina
   ChristmasTreeFarm *-- RegionTask : contiene
   ChristmasTreeFarm ..> BinPackingStrategy : usa
   RegionTask *-- PresentShape : contiene
   PresentShape *-- ShapeVariation : contiene
   ShapeVariation *-- Position2D : usa
-  ChristmasTreeFarmReader ..> ChristmasTreeFarm : crea
+  ObtainChristmasTreeFarm ..> ChristmasTreeFarm : crea
 ```
 
 ---
