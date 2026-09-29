@@ -91,6 +91,11 @@ classDiagram
   }
 
   class TheaterFloorReader {
+    «interface»
+    +read(input: String) TheaterFloor
+  }
+
+  class ObtainTheaterFloor {
     +read(input: String) TheaterFloor
   }
 
@@ -99,6 +104,7 @@ classDiagram
   Solver <|.. Day09BSolver : implementa
   RectangleStrategy <|.. TwoCornerRectangleStrategy : implementa
   RectangleStrategy <|.. InteriorRectangleStrategy : implementa
+  TheaterFloorReader <|.. ObtainTheaterFloor : implementa
 
 %% Relaciones de Ensamblaje e Inyección
   Day09ASolver ..> Day09Solver : ensambla
@@ -108,7 +114,7 @@ classDiagram
 
 %% Relaciones de Dominio
   Day09Solver ..> TheaterFloor : coordina
-  TheaterFloorReader ..> TheaterFloor : crea
+  ObtainTheaterFloor ..> TheaterFloor : crea
   TheaterFloor *-- Position2D : contiene
   TheaterFloor ..> RectangleStrategy : usa
   InteriorRectangleStrategy ..> RedGreenPolygon : crea
