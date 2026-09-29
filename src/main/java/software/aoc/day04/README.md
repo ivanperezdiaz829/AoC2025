@@ -124,8 +124,7 @@ classDiagram
     PaperGrid ..> Position : usa
     AccessRule ..> Position : usa
     ObtainGrid ..> PaperGrid : crea
-    Day04Solver ..> PaperGrid : coordina
-    AccessRule ..> PaperGrid : evalúa
+    AccessRule ..> PaperGrid : usa
     RemovalStrategy ..> PaperGrid: evalúa
 ```
 
