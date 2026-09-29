@@ -25,7 +25,7 @@ Cabe destacar que **todo el Advent of Code se va a hacer utilizando Java**. El p
 Aoc25/
 └── src/
     ├── main/java/software/aoc/
-    │   ├── SafeSolver.java          # Interfaz común para todos los solvers
+    │   ├── Solver.java          # Interfaz común para todos los solvers
     │   ├── day01/                   # Un paquete por día
     │   │   ├── a/Day01ASolver.java
     │   │   └── b/Day01BSolver.java
