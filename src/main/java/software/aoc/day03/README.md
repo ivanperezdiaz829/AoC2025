@@ -97,7 +97,6 @@ classDiagram
 
 %% Dependencias de Dominio
     ObtainBanks ..> BatteryBank : crea
-    Day03Solver ..> BatteryBank : itera
     JoltageOptimizer ..> BatteryBank : evalúa
 ```
 
