@@ -108,7 +108,6 @@ classDiagram
   Day06Solver *-- WorksheetReader : inyecta
 
 %% Relaciones de Dominio
-  Day06Solver ..> Worksheet : coordina
   Worksheet *-- MathProblem : contiene
   MathProblem *-- Operator : utiliza
   AbstractWorksheetReader ..> Worksheet : crea
