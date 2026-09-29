@@ -122,7 +122,6 @@ classDiagram
   Day10Solver *-- ButtonPressStrategy : inyecta
 
 %% Relaciones de Dominio
-  Day10Solver ..> Factory : coordina
   Factory *-- Machine : contiene
   Factory ..> ButtonPressStrategy : usa
   Machine *-- Button : contiene
