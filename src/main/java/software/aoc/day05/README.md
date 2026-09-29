@@ -122,9 +122,7 @@ classDiagram
 
 %% Dependencias de Dominio
     ObtainDatabase ..> InventoryDatabase : crea
-    ObtainDatabase ..> IngredientsRange : crea
     InventoryDatabase *-- IngredientsRange : contiene
-    Day05Solver ..> InventoryDatabase : coordina
     InventoryStrategy ..> InventoryDatabase : evalúa
     FreshnessRule ..> IngredientsRange : evalúa
     MergedRangesStrategy ..> IngredientsRange : fusiona
