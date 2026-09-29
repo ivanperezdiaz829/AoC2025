@@ -99,7 +99,6 @@ classDiagram
 
 %% Dependencias de Dominio (Value Objects e Inmutabilidad)
   ObtainRanges ..> IdRange : crea
-  Day02Solver ..> IdRange : itera
 ```
 
 ---
